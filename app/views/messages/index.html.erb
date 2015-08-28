@@ -1,11 +1,13 @@
 <h1>All Messages for <%= @user.name %></h1>
+
+
 <ul>
 	<% @messages.each do |message| %>
 	<li>
-		<%= link_to message.content, user_message_path(message) %>
+		<a href='/users/<%= @user.id%>/messages/<%= message.id%>'><%=  message.content %></a>
+	
 	</li>
 	<% end %>
 
-	<%= link_to 'Compose a New Message', new_user_message(@user) %>
+	
 </ul>
-
