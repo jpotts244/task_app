@@ -3,13 +3,13 @@ class TasksController < ApplicationController
  # before_action :authenticate, except: [:index]
 
 # GET /tasks
-  # def index
-  #   if params[:user_id]
-  #     @tasks = Task.where({user_id: params[:user_id]})
-  #   else
-  #     @tasks = Task.all
-  #   end
-  # end
+  def index
+    if params[:user_id]
+      @tasks = Task.where({user_id: params[:user_id]})
+    else
+      @tasks = Task.all
+    end
+  end
 
   def new
     @task = Task.new
@@ -31,6 +31,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+# POST
   def update
     task = Task.find(params[:id])
     task.update(task_params)
@@ -46,6 +47,6 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :content, :duedate, :location, :user_id)
+    params.require(:task).permit(:title, :content, :duedate, :location)
   end
 end
