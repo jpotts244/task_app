@@ -1,0 +1,14 @@
+<h1>All Messages for <%= @user.name %></h1>
+
+<ul>
+	<% @messages.each do |message| %>
+	<li>
+		<a href='/users/<%= @user.id%>/messages/<%= message.id%>'><%=  message.content %></a>
+	
+	</li>
+	<% end %>
+
+	
+</ul>
+
+<h1>testestest</h1>
