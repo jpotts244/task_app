@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- before_action :authenticate, except: [:index]
+ before_action :authenticate, except: [:index,:new,:create]
 	def index
 		@users = User.all
 	end
@@ -11,8 +11,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.create(user_params)
   		if @user.save
-  			# session[:user_id] = @user_id
-	  			redirect_to  user_path
+  				session[:user_id] = @user.id
+	  			redirect_to  @user
 	  			else
 					render template: "sessions/new"
 					render new
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
   	@tasks = @user.tasks
+  	@messages = @user.messages
   end
   
 
