@@ -1,12 +1,4 @@
 class UsersController < ApplicationController
-	def index
-
-		@user = User.where(user_id: params[:user_id])
-
-		@user = User.where({user_id: params[:name]})
-
-
-	end
 	def new
   @user = User.new
 	end
