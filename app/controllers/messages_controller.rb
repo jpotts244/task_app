@@ -13,10 +13,11 @@ class MessagesController < ApplicationController
 	def create
 		@user = User.find(params[:user_id])
 		@message = Message.create(message_params) 
-		redirect_to user_path(@user)
+		redirect_to :index
 	end
 
 	def show
+		@user = User.find(params[:user_id])
 		@message = Message.find(params[:id])
 	end
 
