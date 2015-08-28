@@ -1,4 +1,9 @@
-<h1><%= @user.name %></h1>
+<h1>Welcome to tasks</h1>
 
-<h1><%= @user.email %></h1>
+<%= link_to "sign up", new_user_path %>
 
+<%= link_to "log in", login_path %>
+
+<% @users.each do |user| %>
+	<%= link_to user.id, user %>
+<% end %>
