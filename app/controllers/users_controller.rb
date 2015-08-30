@@ -1,28 +1,32 @@
 class UsersController < ApplicationController
- before_action :authenticate, except: [:index,:new,:create]
+ before_action :authenticate, only: [:show]
 	def index
 		@users = User.all
 	end
 
 	def new
-  	@user = User.new
+  		@user = User.new
 	end
 
 	def create
-		@user = User.create(user_params)
+		@user = User.new(user_params)
   		if @user.save
-  				session[:user_id] = @user.id
-	  			redirect_to  @user
-	  			else
-					render template: "sessions/new"
-					render new
+			session[:user_id] = @user.id
+			flash[:success] = "Welcome to Task Manager!"
+  			redirect_to  @user
+		else	
+			render 'new'
   		end
   	end
   	
   def show
-  	@user = User.find(params[:id])
-  	@tasks = @user.tasks
-  	@messages = @user.messages
+  	if params[:id].to_i == current_user.id
+	  	@user = User.find(params[:id])
+	  	@tasks = @user.tasks
+	  	@messages = @user.messages
+	else
+		redirect_to users_path
+	end
   end
   
 

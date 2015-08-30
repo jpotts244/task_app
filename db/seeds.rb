@@ -19,4 +19,4 @@ d = Task.create({title:"task2",content:"it's another task",duedate:"tomorrow",lo
 Tasking.create(user:a,task:c)
 Tasking.create(user:a,task:d)
 
-Message.create({content:"hi",attachment:"no attach",user_id: 1})
+Message.create({content:"hi",attachment:"no attach",user_id: a.id})
