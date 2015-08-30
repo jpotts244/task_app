@@ -1,17 +1,16 @@
-<%= @user.name %><br>
-<%= @user.email %><br>
+<div class="row">
+	<div class="col-md-9">
 
-<% @tasks.each do |task| %>
-	<%= task.title %><br>
-	<%= task.content %><br>
-<% end %>
+		<h1>Task List</h1>
+		<% @tasks.each do |task| %>
+			<a href="/tasks/<%= task.id %>"><div class="taskDisplay">
+			Title: <%= task.title %><br>
+			Due Date: <%= task.duedate %><br>
+			</div></a>
+		<% end %>
 
-<%= link_to "Create New Task", new_task_path %>
-
-<%= link_to "Mail Box", user_messages_path(@user.id) %>
-
-<% if User.find_by(id: session[:user_id]) %>
-
-<%= link_to "logout", logout_path, method: :delete %>
-
-<% end %>
+	</div>
+	<div class="col-md-3" style="border-left:1px solid rgba(0,0,0,0.2)">
+		<a class="btn btn-success btn-lg" href="/tasks/new">New Task</a>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+
+/*include bootstrap framework*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*custom css styles*/
+
+body {
+	padding-top: 70px;
+}
+
+.taskDisplay {
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 5px;
+	margin: 10px 0px;
+	padding: 10px;
+}
