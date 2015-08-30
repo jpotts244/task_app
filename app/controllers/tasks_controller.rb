@@ -13,11 +13,17 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @user = User.new
   end
 
 # GET /tasks/new
   def create
     Task.create(task_params)
+    id = session[:user_id]
+    task = Task.last
+    t_id= task.id
+    t_id = t_id
+    Tasking.create({user_id: id, task_id: t_id })
     redirect_to tasks_path
   end
 
@@ -49,4 +55,8 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:title, :content, :duedate, :location)
   end
+
+  # def tasking_params
+  #   params.require(:tasking).permit(:user_id, :task_id)
+  # end
 end
