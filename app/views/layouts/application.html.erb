@@ -7,27 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<<<<<<< HEAD
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
+
+  <nav>
+    <div>
       <ul>
         <a href="/users"><li>Home</li></a>
-        <li class="dropdown">
-          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Task <span class="caret"></span></a>
-          <ul>
-          <a href="/tasks"><li>All Tasks</li></a>
-          <a href="/tasks/new"><li>Create new</li></a>
-          </ul>
-        </li>
+        <a href="/tasks"><li>All Tasks</li></a>
+        <a href="/tasks/new"><li>Create new</li></a>
         <a href="/login"><li>Login</li></a>
       </ul>
     </div>
   </nav>
-=======
+
 <!-- 
 	<h1><%= link_to "logout", logout_path, method: :delete %></h1><br> -->
 
->>>>>>> 3e1d2ed43bc8efa494a585d99c665f36677c2add
+
 <%= yield %>
 
 </body>
