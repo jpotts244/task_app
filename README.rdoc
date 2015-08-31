@@ -50,13 +50,17 @@ Please feel free to use a different markup language if you do not plan to run
 * API
 
 === Artifacts
-* User Stories
-* Front-End Wireframes
-* Routes
-* Database Design(ERD Diagrams)
+==== User Stories
+
+==== Front-End Wireframes
+
+==== Routes
+
+==== Database Design(ERD Diagrams)
+[Trello](app/assets/images/ERD.png)
 
 === Agile Development
-[Trello](img/trello.png)
+[Trello](app/assets/images/trello.png)
 
 
 === Trello Board
