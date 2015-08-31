@@ -1,14 +1,38 @@
 <div class="row">
+
 	<div class="col-md-9">
 
-		<h1>Task List</h1>
+		<div class="row">
 
-		<% @tasks.each do |task| %>
+			<div class="col-md-8">
+				<h1>Task List</h1>
+			</div>
 
-			<a href="/tasks/<%= task.id %>"><div class="taskDisplay">
-			Title: <%= task.title %><br>
-			Due Date: <%= task.duedate %><br>
-			</div></a>
+			<div class="col-md-4 pull-right" style="padding-top:40px">
+				<span id="showList" style="padding: 0px 20px">view as list</span>
+				<span id="showMap" style="border-left:1px solid rgba(0,0,0,0.3);padding: 0px 20px;" class="btn btn-link">view on map</span>
+			</div>	
+
+		</div>
+
+		<div id="listDisplay">
+
+			<% @tasks.each do |task| %>
+
+				<a href="/tasks/<%= task.id %>"><div class="taskDisplay">
+				Title: <%= task.title %><br>
+				Due Date: <%= task.duedate %><br>
+				</div></a>
+			<% end %>
+
+		</div>
+
+		<div id="map-wrapper" style="display:none"> 
+			<div id="map" style='width: 800px; height: 400px;'></div>
+		</div>
+
+		<!-- pass task data from server to client, so javascript can handle that on map-->
+		<%= content_tag :div, class: "tasks_class", data: {tasks: @tasks} do %>
 		<% end %>
 
 	</div>
@@ -16,3 +40,77 @@
 		<a class="btn btn-success btn-lg" href="/tasks/new">New Task</a>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+	var map;
+	var bounds;
+	var tasks = $(".tasks_class").data("tasks");
+
+	function initMap() {
+	    map = new google.maps.Map(document.getElementById('map'),{
+	  	    center: {lat: 40.7127837, lng: -74.0059413},
+	   		zoom: 13
+	    });
+
+	    bounds = new google.maps.LatLngBounds();
+
+	    tasks.forEach(function(task,index){
+	    	showMarker(tasks[index],map,bounds);
+	    });
+	}
+
+	function showMarker(task,map,bounds){
+		var address = task.location.replace(" ","+");
+		$.ajax({
+			type: "GET",
+			url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&key=AIzaSyC-mVHB9l99TzO9VTUGa6Cin6hHqWg9Vq8",
+			success: function(data){
+				var marker = new google.maps.Marker({
+				    position: data.results[0].geometry.location,
+				    map: map,
+				    title: task.title
+			    });		
+			    var infoContent = "<div><h4>"+task.title+"</h4><p>"+task.content+"</p>"+
+			    				"<a href=\"/tasks/"+task.id+"\">Check Task</a>"+"</div>";
+			    var infowindow = new google.maps.InfoWindow({
+				    content: infoContent
+				});
+			    marker.addListener("click",function(){
+			    	infowindow.open(map,marker);
+			    })
+			    bounds.extend(marker.getPosition());	
+			    map.fitBounds(bounds);	
+			}
+		});	
+	}	
+
+	$(function(){
+
+		$("#showList").on("click",function(event){
+			// $("#showList").off("click");
+			$("#map-wrapper").hide();
+			$("#listDisplay").show();
+			$(this).removeClass("btn btn-link");
+			$("#showMap").addClass("btn btn-link");
+
+		});
+
+		$("#showMap").on("click",function(event){
+
+			// $("#showMap").off("click");
+			$("#listDisplay").hide();
+			$("#map-wrapper").show();
+			initMap();
+			$(this).removeClass("btn btn-link");
+			$("#showList").addClass("btn btn-link");			
+
+		});
+
+	})
+
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9bVJOJfO4NXj3CEdj7LG4726C6xvlG3Q&callback=initMap">
+</script>
