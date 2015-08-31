@@ -4,8 +4,7 @@
 
 <p><%= @task.content%></p>
 
-
-<p>In <%= @task.location%> weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
+<p>Today <%= @weather_day %>day in the <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
  
 
 <% if @task.image_file_name == nil %>

@@ -44,7 +44,7 @@ class TasksController < ApplicationController
 
 city = @task.location
 # state = @task.location
-city.gsub!(" ", "%20")
+city.gsub(" ", "%20")
 # response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
 
 # @weather_feel = response["current_observation"]["feelslike_f"]
@@ -59,6 +59,7 @@ response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?lo
     "Accept" => "application/json"
   })
   
+  @weather_day = response[1]["day_of_week"]
   @weather_condition = response[0]["condition"]
   @weather_feel = response[2]["high"]
 
