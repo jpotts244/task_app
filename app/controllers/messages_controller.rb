@@ -11,9 +11,18 @@ class MessagesController < ApplicationController
 	end
 
 	def create
-		@user = User.find(params[:user_id])
-		@message = Message.create(message_params) 
-		redirect_to user_messages_path
+		# binding.pry
+		# @user = User.find(params[:user_id])
+		@message = Message.new(message_params) 
+		if @message.save
+			# if successfully save
+			redirect_to user_messages_path
+		else
+			# otherwise go back to new msg page
+			flash[:error] = "Please Complete Content Input"
+			redirect_to new_user_message_path
+		end
+		
 	end
 
 	def show
@@ -31,8 +40,8 @@ class MessagesController < ApplicationController
 	def message_params
 		params
 		.require(:message)
-		.permit(:content, :attachment, :sender_id)
-		.merge({user_id: params[:user_id]})
+		.permit(:user_id, :content, :attachment, :sender_id)
+		.merge({sender_id: current_user.id})
 	end
 
 end
