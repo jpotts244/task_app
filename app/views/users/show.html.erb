@@ -1,7 +1,7 @@
 <div class="row">
-	<div class="col-md-9">
+	<div class="col-md-11">
 
-		<h1>Task List</h1>
+		<h1>Task List</h1><hr>
 
 		<% @tasks.each do |task| %>
 
@@ -12,7 +12,7 @@
 		<% end %>
 
 	</div>
-	<div class="col-md-3" style="border-left:1px solid rgba(0,0,0,0.2)">
-		<a class="btn btn-success btn-lg" href="/tasks/new">New Task</a>
+	<div class="col-md-1" style="border-left:1px solid rgba(0,0,0,0.2)">
+		<a class="btn btn-primary htn-lg" href="/tasks/new">New Task</a>
 	</div>
 </div>
