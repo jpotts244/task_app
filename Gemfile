@@ -48,12 +48,11 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-<<<<<<< HEAD
 
-=======
+
   
   # Paperclip attachments
   gem "paperclip", "~> 4.3"
->>>>>>> 403ba1fa194116d03ce8cbbf5817893fe41716ba
+
 end
 

@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 # authentication callback before action, no authentication required to the excepts ones
  # before_action :authenticate, except: [:index]
 
-
+require 'pry'
 #GET /tasks
 
 # GET /tasks
@@ -29,15 +29,24 @@ class TasksController < ApplicationController
     t_id = t_id
     Tasking.create({user_id: id, task_id: t_id })
     redirect_to tasks_path
-  end
+end
 
 # GET /tasks/:id - show task
   def show
     @task = Task.find(params[:id])
 
+city = @task.location
+city.gsub!(" ", "%20")
+response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
+
+@weather_task = response["current_observation"]["feelslike_f"]
+binding.pry
+# puts response["current_observation"]["weather"]   
+
+ end
 
 
-  end
+
 
 # GET /tasks/:id/edit
   def edit
@@ -50,6 +59,7 @@ class TasksController < ApplicationController
     task.update(task_params)
     redirect_to tasks_path
   end
+
 
 # DELETE /tasks/:id
   def destroy
