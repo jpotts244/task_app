@@ -1,13 +1,13 @@
 <%= form_for @task, htlm: {multipart: true} do |f| %>
-  <%= f.label :title, 'Title'%>
-  <%= f.text_field :title, placeholder:'Title'%>
-  <%= f.label :content, 'Content'%>
-  <%= f.text_field :content, placeholder: 'Content'%>
-  <%= f.label :duedate, 'Duedate'%>
-  <%= f.date_field :duedate %>
-  <%= f.label :location, 'Location'%>
-  <%= f.text_field :location, placeholder:'Location'%>
-  <%= f.label :image, 'Attachment'%>
-  <%= f.file_field :image, placeholder:'Attachment'%>
-  <%= f.submit %>
+  <%= f.label :title%><br>
+  <%= f.text_field :title, placeholder:'Title', class: "form-control"%><br>
+  <%= f.label :content%><br>
+  <%= f.text_field :content, placeholder: 'Content', class: "form-control"%><br>
+  <%= f.label :duedate%><br>
+  <%= f.date_field :duedate, class: "form-control" %><br>
+  <%= f.label :location%><br>
+  <%= f.text_field :location, placeholder:'Location', class: "form-control"%><br>
+  <%= f.label :image%><br>
+  <%= f.file_field :image, placeholder:'Attachment', class: "form-control"%><br>
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>

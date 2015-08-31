@@ -18,13 +18,15 @@ class TasksController < ApplicationController
 
 # GET /tasks/new
   def create
-    Task.create(task_params)
+    Task.create(task_params).valid?
+     # for validation for required field if the input is not valid redirect to the create new form, 
+
     id = session[:user_id]
     task = Task.last
     t_id= task.id
     t_id = t_id
     Tasking.create({user_id: id, task_id: t_id })
-    redirect_to tasks_path
+    redirect_to "/users/<%=id%>" # path to user/<%= user.id%>
   end
 
 # GET /tasks/:id - show task
@@ -46,6 +48,7 @@ class TasksController < ApplicationController
 
 # DELETE /tasks/:id
   def destroy
+    # double confirmetion for the delete
     task = Task.find(params[:id])
     task.destroy
     redirect_to tasks_path
