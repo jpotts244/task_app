@@ -1,18 +1,96 @@
+
+
 <div class="row">
+
 	<div class="col-md-9">
 
-		<h1>Task List</h1>
+		<div class="row">
 
-		<% @tasks.each do |task| %>
+			<div class="col-md-8">
+				<h1>Task List</h1>
+			</div>
 
-			<a href="/tasks/<%= task.id %>"><div class="taskDisplay">
-			Title: <%= task.title %><br>
-			Due Date: <%= task.duedate %><br>
-			</div></a>
-		<% end %>
+			<div class="col-md-4 pull-right" style="padding-top:40px">
+				<span id="showList" style="padding: 0px 20px">view as list</span>
+				<span id="showMap" style="border-left:1px solid rgba(0,0,0,0.3);padding: 0px 20px;" class="btn btn-link">view on map</span>
+			</div>	
+
+		</div>
+
+		<div id="listDisplay">
+
+			<% @tasks.each do |task| %>
+
+				<a href="/tasks/<%= task.id %>"><div class="taskDisplay">
+				Title: <%= task.title %><br>
+				Due Date: <%= task.duedate %><br>
+				</div></a>
+			<% end %>
+
+		</div>
+
+		<div id="map-wrapper" style="display:none"> 
+			<div id="map" style='width: 800px; height: 400px;'></div>
+		</div>
+	
 
 	</div>
 	<div class="col-md-3" style="border-left:1px solid rgba(0,0,0,0.2)">
 		<a class="btn btn-success btn-lg" href="/tasks/new">New Task</a>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+var map;
+function initMap() {
+
+  var myLatLng = {lat: -34.397, lng: 150.644};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: myLatLng,
+    zoom: 8
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+
+  var marker1 = new google.maps.Marker({
+    position: {lat: -31.397, lng: 150.644},
+    map: map,
+    title: 'Hello World!'
+  });
+}
+
+
+$(function(){
+
+	$("#showList").on("click",function(event){
+		// $("#showList").off("click");
+		$("#map-wrapper").hide();
+		$("#listDisplay").show();
+		$(this).removeClass("btn btn-link");
+		$("#showMap").addClass("btn btn-link");
+
+	});
+
+	$("#showMap").on("click",function(event){
+
+		// $("#showMap").off("click");
+		$("#listDisplay").hide();
+		$("#map-wrapper").show();
+		initMap();
+		$(this).removeClass("btn btn-link");
+		$("#showList").addClass("btn btn-link");			
+
+	});
+
+})
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAin20IwMDRuVGUWScDXnE0fBkYjaJ5d_E&callback=initMap">
+</script>
