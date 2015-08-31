@@ -55,7 +55,7 @@ city.gsub(" ", "%20")
 
 response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
   headers:{
-    "X-Mashape-Key" => "Z8lHkBrDMgmshwSAaNYu49INydgsp1IxGesjsneAYhnegsAJBX",
+    "X-Mashape-Key" => ENV["WEATHER_KEY"],
     "Accept" => "application/json"
   })
   
@@ -77,7 +77,7 @@ response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?lo
   def update
     task = Task.find(params[:id])
     task.update(task_params)
-    redirect_to tasks_path
+    redirect_to current_user
   end
 
 
@@ -86,7 +86,7 @@ response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?lo
     # double confirmetion for the delete
     task = Task.find(params[:id])
     task.destroy
-    redirect_to tasks_path
+    redirect_to current_user
   end
 
   private
