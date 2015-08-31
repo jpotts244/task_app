@@ -9,10 +9,15 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # direct to profile page
       session[:user_id] = user.id
-       redirect_to user
+      redirect_to user
     else
       # create error msg
-      render new
+      if user == nil
+        flash[:danger] = "User does not exists"
+      else
+        flash[:danger] = "Incorrect password"
+      end
+      redirect_to login_path
     end
   end
 

@@ -1,8 +1,8 @@
 <h1>Write a New Message</h1>
 <%= f.label :content %>
-<%= f.text_field :content %>
+<%= f.text_field :content, class: "form-control" %><br>
 <%= f.label :attachment %>
-<%= f.text_field :attachment %>
+<%= f.text_field :attachment, class: "form-control" %><br>
 <%= f.label :sender_id %>
-<%= f.text_field :sender_id %>
-<%= f.submit %>
+<%= f.text_field :sender_id, class: "form-control" %><br>
+<%= f.submit class: "btn btn-primary" %>
