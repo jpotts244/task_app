@@ -2,7 +2,6 @@ class TasksController < ApplicationController
 # authentication callback before action, no authentication required to the excepts ones
  # before_action :authenticate, except: [:index]
 
-require 'pry'
 #GET /tasks
 
 # GET /tasks
@@ -44,12 +43,24 @@ require 'pry'
     @task = Task.find(params[:id])
 
 city = @task.location
+# state = @task.location
 city.gsub!(" ", "%20")
-response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
+# response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
 
-@weather_task = response["current_observation"]["feelslike_f"]
-binding.pry
-# puts response["current_observation"]["weather"]   
+# @weather_feel = response["current_observation"]["feelslike_f"]
+
+# @weather_condition = response["current_observation"]["weather"]   
+
+
+
+response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
+  headers:{
+    "X-Mashape-Key" => "Z8lHkBrDMgmshwSAaNYu49INydgsp1IxGesjsneAYhnegsAJBX",
+    "Accept" => "application/json"
+  })
+  
+  @weather_condition = response[0]["condition"]
+  @weather_feel = response[2]["high"]
 
  end
 
