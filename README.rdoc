@@ -27,20 +27,20 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-############################################################################################
+##########################################################################
 
-# Project 3 - Task App
+== Project 3 - Task App
 
 
-## Project Description
+=== Project Description
 
-## Team
+=== Team
 * Jacqueline Potts
 * Xi Zhang
 * Reyes Rodriguez
 * Viktoria Szontagh
 
-## Technologies
+=== Technologies
 * HTML/ ERB templating
 * CSS
 * JS
@@ -49,19 +49,20 @@ Please feel free to use a different markup language if you do not plan to run
 * Active Records
 * API
 
-## Artifacts
+=== Artifacts
 * User Stories
 * Front-End Wireframes
 * Routes
 * Database Design(ERD Diagrams)
 
-## Agile Development
+=== Agile Development
 [Trello](img/trello.png)
 
 
-## Trello Board
+=== Trello Board
 [Trello](https://trello.com/b/5ngCFpBF/project-3)
 
-## Heroku
+=== Heroku
 [GitHub](https://secure-badlands-5616.herokuapp.com/login)
-## Resources
+
+=== Resources
