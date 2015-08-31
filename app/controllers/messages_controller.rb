@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 	def create
 		@user = User.find(params[:user_id])
 		@message = Message.create(message_params) 
-		redirect_to :index
+		redirect_to user_messages_path
 	end
 
 	def show
@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
 	def destroy
 		@message = Message.find(params[:id])
 		@message.delete
-		redirect_to @message.user
+		redirect_to user_messages_path
 	end
 
 	private

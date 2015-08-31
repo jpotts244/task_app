@@ -1,6 +1,15 @@
-<h1> Here is you message</h1>
-<p><%= @message.content %></p>
-<p><%= @message.attachment %></p>
-<p><%= @message.sender_id %></p>
+<div class="row">
+	<div class="col-md-9">
 
-<a href="/users/<%= @user.id%>/messages">Go Back</a>
+		<h1> Here are your messages</h1>
+		<p><%= @message.content %></p>
+		<p><%= @message.attachment %></p>
+		<p><%= @message.sender_id %></p>
+	</div><br>
+	<!-- double check button sizing and color -->
+	<div class="col-md-3" style="border-left:1px solid rgba(0,0,0,0.2)">
+		<a class="btn btn-primary htn-lg" href="/users/<%= @user.id%>/messages/new">Compose a Message</a>
+	<div class="col-md-3" style="border-left:1px solid rgba(0,0,0,0.2)">
+		<a class="btn btn-primary htn-lg" href="/users/<%= @user.id%>/messages">Go Back</a>
+	</div>
+</div>
