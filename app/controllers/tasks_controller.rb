@@ -2,14 +2,14 @@ class TasksController < ApplicationController
 # authentication callback before action, no authentication required to the excepts ones
  # before_action :authenticate, except: [:index]
 
-# GET /tasks
-  # def index
-  #   if params[:user_id]
-  #     @tasks = Task.where({user_id: params[:user_id]})
-  #   else
-  #     @tasks = Task.all
-  #   end
-  # end
+#GET /tasks
+  def index
+    if params[:user_id]
+      @tasks = Task.where({user_id: params[:user_id]})
+    else
+      @tasks = Task.all
+    end
+  end
 
   def new
     @task = Task.new
@@ -24,6 +24,7 @@ class TasksController < ApplicationController
 # GET /tasks/:id - show task
   def show
     @task = Task.find(params[:id])
+
   end
 
 # GET /tasks/:id/edit
