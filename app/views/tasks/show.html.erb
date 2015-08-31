@@ -2,11 +2,15 @@
 <p><%= @task.duedate%></p>
 <p><%= @task.content%></p>
 <p><%= @task.location%></p>
-<p><%= image_tag @task.image.url(:medium) %></p>
+        <% if @task.image_file_name == nil %>
+             <p></p>
+        <% else %>
+            <p><%= image_tag @task.image.url(:medium)%></p>
+        <% end %>
 
 <%= link_to 'Edit task', edit_task_path %>
 
-<%= link_to 'Delete task', task_path, method: :delete %>
+<%= link_to 'Delete task', task_path, method: :delete, data:{ confirm: 'Are you sure you want to delete this task?'} %>
 
 
 

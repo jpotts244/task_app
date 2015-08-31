@@ -18,13 +18,19 @@ class TasksController < ApplicationController
 
 # GET /tasks/new
   def create
-    Task.create(task_params)
-    id = session[:user_id]
-    task = Task.last
-    t_id= task.id
-    t_id = t_id
-    Tasking.create({user_id: id, task_id: t_id })
-    redirect_to tasks_path
+     # for validation for required field if the input is not valid redirect to the create new form, 
+     @task = Task.new(task_params)
+
+     if @task.save
+        Tasking.create({user_id: current_user.id, task_id: @task.id })
+        current_user.id
+        flash[:success] = "Task had been saved sucessfully."
+        redirect_to current_user
+
+     else
+        flash[:danger] = "Task not saved. Required fields are incomlete."
+        redirect_to new_task_path
+     end
   end
 
 # GET /tasks/:id - show task
@@ -46,7 +52,9 @@ class TasksController < ApplicationController
 
 # DELETE /tasks/:id
   def destroy
+    # double confirmetion for the delete
     task = Task.find(params[:id])
+ 
     task.destroy
     redirect_to tasks_path
   end
