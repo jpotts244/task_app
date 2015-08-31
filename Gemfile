@@ -52,7 +52,6 @@ group :development do
   # Paperclip attachments
   gem "paperclip", "~> 4.3"
 
-  gem 'bootstrap-confirma-rails'
 
 end
 
