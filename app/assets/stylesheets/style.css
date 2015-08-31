@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two);
+
+
+body{
+  margin: 0 10%;
+ 
+}
+.content{
+  padding: 3% 5%;
+}
+
+h1,h2{
+  font-family: 'Lobster Two', cursive;
+  text-align: center;
+  color: #666666;
+}
+p{
+  font-family: 'Lobster Two', cursive;
+  /*font-family: 'Shadows Into Light', cursive;*/
+  font-size: 1.3em;
+  color: #666666;
+}
+
+.task{
+  font-size: 1em;
+  color: #296ACC;
+  padding-left: 2%; 
+}
+.tasktitle{
+  text-align: center;
+}
+.alignleft{
+  float: left;
+}
+.alignright{
+  float: right;
+}

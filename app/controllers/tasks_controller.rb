@@ -28,7 +28,7 @@ class TasksController < ApplicationController
         redirect_to current_user
 
      else
-        flash[:danger] = "Task not saved. Required fields are incomlete."
+        flash[:danger] = "Task not saved. Required fields are incomplete."
         redirect_to new_task_path
      end
   end
@@ -54,7 +54,6 @@ class TasksController < ApplicationController
   def destroy
     # double confirmetion for the delete
     task = Task.find(params[:id])
- 
     task.destroy
     redirect_to tasks_path
   end
