@@ -54,7 +54,6 @@ class TasksController < ApplicationController
   def destroy
     # double confirmetion for the delete
     task = Task.find(params[:id])
-
     task.destroy
     redirect_to tasks_path
   end
