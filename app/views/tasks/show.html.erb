@@ -6,6 +6,7 @@
 
 <p><%= @task.location%></p>
 
+
 <% 	require 'open-uri'
 	require 'json'
 	open('http://api.wunderground.com/api/4a9cdbbd8fedfdc6/geolookup/conditions/q/IA/Cedar_Rapids.json') do |f|
@@ -16,6 +17,9 @@
 		  print "Current temperature in #{location} is: #{temp_f}\n"
 		   "Current temperature in #{location} is: #{temp_f}."
 end %>
+
+
+<p><%= image_tag @task.image.url(:medium) %></p>
 
 
 <%= link_to 'Edit task', edit_task_path %>
