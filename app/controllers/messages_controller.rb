@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
 	end
 
 	def new
-		# @user = User.search(params[:search])
+		# @user = User.search(params[:search], params[:email])
 		@user = User.find(params[:user_id])
 		@message = Message.new
 	end
