@@ -40,10 +40,8 @@ class TasksController < ApplicationController
 
 # GET /tasks/:id - show task
   def show
-    @task = Task.find(params[:id])
-
+    @task = Task.find(params[:id]) 
 city = @task.location
-# state = @task.location
 city.gsub(" ", "%20")
 # response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
 
@@ -62,8 +60,8 @@ response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?lo
   @weather_day = response[1]["day_of_week"]
   @weather_condition = response[0]["condition"]
   @weather_feel = response[2]["high"]
+end
 
- end
 
 
 

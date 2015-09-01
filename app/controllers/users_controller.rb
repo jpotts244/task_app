@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 		redirect_to users_path
 	end
   end
+
   
 
 private
