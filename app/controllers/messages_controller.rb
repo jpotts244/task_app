@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
 	def create
 		# binding.pry
 		# @user = User.find(params[:user_id])
+		#user_id refers to the recipient id 
 		@message = Message.new(message_params) 
 		if @message.save
 			# if successfully save
@@ -38,6 +39,7 @@ class MessagesController < ApplicationController
 
 	private
 	def message_params
+		#Dont panic if this doesnt work, it good, you need to be signed in! 
 		params
 		.require(:message)
 		.permit(:user_id, :content, :attachment, :sender_id)
