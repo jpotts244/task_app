@@ -6,13 +6,15 @@ class TasksController < ApplicationController
 
 # GET /tasks
 
-  def index
-    if params[:user_id]
-      @tasks = Task.where({user_id: params[:user_id]})
-    else
-      @tasks = Task.all
-    end
-  end
+  # def index
+  #   if current_user.id
+  #     @user = User.find(current_user.id)
+  #     @tasks = @user.tasks
+  #     @messages = @user.messages
+  #   else
+  #     redirect_to users_path
+  #   end
+  # end
 
   def new
     @task = Task.new

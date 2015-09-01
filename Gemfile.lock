@@ -179,11 +179,8 @@ DEPENDENCIES
   bootstrap-sass (= 3.3.5.1)
   byebug
   coffee-rails (~> 4.1.0)
-<<<<<<< HEAD
-  httparty
-=======
   dotenv-rails
->>>>>>> 622d2b750c53061a90419c96878b7a33307ef13e
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (~> 4.3)
