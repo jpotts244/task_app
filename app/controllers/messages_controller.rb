@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
 			redirect_to user_messages_path
 		else
 			# otherwise go back to new msg page
-			flash[:error] = "Please Complete Content Input"
+			flash[:danger] = "Please Complete Content Input"
 			redirect_to new_user_message_path
 		end
 		
