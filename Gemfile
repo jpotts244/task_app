@@ -56,7 +56,5 @@ group :development do
 
   gem 'dotenv-rails'
 
-  # gem 'bootstrap-confirm-rails'
-
 end
 

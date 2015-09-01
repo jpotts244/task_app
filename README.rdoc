@@ -51,10 +51,21 @@ Please feel free to use a different markup language if you do not plan to run
 
 === Artifacts
 ==== User Stories
+* User can create a user profile/ Sign in to the page
+* User receives welcome email after successful sign up
+* User can sign in with existing user account
+* User can see all the tasks created by him/her
+* User can create a new task
+* User can see the location of the task in the map view
+* User can edit current tasks
+* User can delete their own tasks
+* User also want a secondary confirmation for deletion, in can case he/she changes his/her mind.
+* 
 
 ==== Front-End Wireframes
-
+[HTML](app/assets/images/routes.png)
 ==== Routes
+[Routes](app/assets/images/routes.png)
 
 ==== Database Design(ERD Diagrams)
 [Trello](app/assets/images/ERD.png)
