@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
 		@message = Message.new(message_params) 
 		if @message.save
 			# if successfully save
+			Message.create(message_params)
 			redirect_to user_messages_path
 		else
 			# otherwise go back to new msg page
