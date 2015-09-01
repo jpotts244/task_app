@@ -72,17 +72,17 @@ Please feel free to use a different markup language if you do not plan to run
 
 
 ==== Front-End Wireframes
-[HTML](task_app/app/assets/images/routes.png)
+[HTML](app/assets/images/routes.png)
 
 ==== Routes
-[Routes](task_app/app/assets/images/routes1.png)
-[Routes](task_app/app/assets/images/routes2.png)
+[Routes](app/assets/images/routes1.png)
+[Routes](app/assets/images/routes2.png)
 
 ==== Database Design(ERD Diagrams)
-[Trello](task_app/app/assets/images/ERD.png)
+[Trello](app/assets/images/ERD.png)
 
 === Agile Development
-[Trello](task_app/app/assets/images/trello.png)
+[Trello](app/assets/images/trello.png)
 
 
 === Trello Board
