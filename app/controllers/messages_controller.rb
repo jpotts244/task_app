@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
 		# @user = User.search(params[:search], params[:email])
 		@user = User.find(params[:user_id])
 		@message = Message.new
+		@users = User.all
 	end
 
 	def create
@@ -32,7 +33,6 @@ class MessagesController < ApplicationController
 		@user = User.find(params[:user_id])
 		@message = Message.find(params[:id])
 		@sender = Message.find(params[:id]).sender_id
-		@sender_name = User.find(id = @sender).name
 	end
 
 	def destroy
@@ -46,7 +46,7 @@ class MessagesController < ApplicationController
 		#Dont panic if this doesnt work, it good, you need to be signed in! 
 		params
 		.require(:message)
-		.permit(:user_id, :content, :attachment, :sender_id)
+		.permit(:user_id, :content, :attachment)
 		.merge({sender_id: current_user.id})
 	end
 

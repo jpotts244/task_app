@@ -8,7 +8,9 @@
 		
 		<%= @message.attachment %><br>
 		<p><u>From:</u></p>
-		<%= @sender_name %>
+		<% if @sender %>
+			<%= User.find(@sender).name %>
+		<% end %>
 		
 	</div><br>
 
