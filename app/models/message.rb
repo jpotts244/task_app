@@ -3,4 +3,5 @@ class Message < ActiveRecord::Base
 
 	validates :content, presence: true,
 		uniqueness: { case_sensitive: false }
+
 end
