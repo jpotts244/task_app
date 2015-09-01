@@ -7,6 +7,7 @@ class TasksController < ApplicationController
 # GET /tasks
 
   def index
+    @tasks = Task.search(params[:search])
     if params[:user_id]
       @tasks = Task.where({user_id: params[:user_id]})
     else
