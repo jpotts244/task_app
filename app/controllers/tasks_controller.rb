@@ -52,8 +52,6 @@ city.gsub(" ", "%20")
 
 # @weather_condition = response["current_observation"]["weather"]   
 
-
-
 response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
   headers:{
     "X-Mashape-Key" => ENV["WEATHER_KEY"],
