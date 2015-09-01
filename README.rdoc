@@ -52,9 +52,10 @@ Please feel free to use a different markup language if you do not plan to run
 === Artifacts
 ==== User Stories
 
-==== Front-End Wireframes
 
+==== Front-End Wireframes
 ==== Routes
+[Routes](app/assets/images/routes.png)
 
 ==== Database Design(ERD Diagrams)
 [Trello](app/assets/images/ERD.png)

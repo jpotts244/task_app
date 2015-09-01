@@ -4,10 +4,12 @@ class TasksController < ApplicationController
 
 # GET /tasks
   def index
-    if params[:user_id]
-      @tasks = Task.where({user_id: params[:user_id]})
+    if current_user.id
+      @user = User.find(current_user.id)
+      @tasks = @user.tasks
+      @messages = @user.messages
     else
-      @tasks = Task.all
+      redirect_to users_path
     end
   end
 
@@ -47,7 +49,7 @@ class TasksController < ApplicationController
   def update
     task = Task.find(params[:id])
     task.update(task_params)
-    redirect_to tasks_path
+    redirect_to current_user
   end
 
 # DELETE /tasks/:id
@@ -55,7 +57,7 @@ class TasksController < ApplicationController
     # double confirmetion for the delete
     task = Task.find(params[:id])
     task.destroy
-    redirect_to tasks_path
+    redirect_to current_user
   end
 
   private
