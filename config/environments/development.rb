@@ -23,8 +23,8 @@ Rails.application.configure do
       :port => 587,
       :authentication => :plain,
       :domain => 'localhost:3000',
-      :user_name => 'ga.tasktest@gmail.com',
-      :password => 'T4sktest'     
+      :user_name => ENV['EMAIL_USER_NAME'],
+      :password => ENV['EMAIL_PASSWORD']    
     }
 
   # Print deprecation notices to the Rails logger.

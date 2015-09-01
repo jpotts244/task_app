@@ -1,5 +1,5 @@
 class MyMailer < ActionMailer::Base
-	default :from => 'notifications@taskapp.com'
+	default :from => ENV['EMAIL_USER_NAME']
 
 	def welcome_email(user)
 		@user = user
