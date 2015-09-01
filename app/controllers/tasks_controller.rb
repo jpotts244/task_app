@@ -7,11 +7,13 @@ class TasksController < ApplicationController
 # GET /tasks
 
   def index
-    @tasks = Task.search(params[:search])
-    if params[:user_id]
-      @tasks = Task.where({user_id: params[:user_id]})
+    
+    if current_user.id
+      @user = User.find(current_user.id)
+      @tasks = @user.tasks
+      @messages = @user.messages
     else
-      @tasks = Task.all
+      redirect_to users_path
     end
   end
 
@@ -63,6 +65,10 @@ response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?lo
   @weather_feel = response[2]["high"]
 end
 
+def search 
+
+end
+
 
 
 
@@ -87,6 +93,7 @@ end
     task.destroy
     redirect_to current_user
   end
+
 
   private
   def task_params
