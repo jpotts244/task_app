@@ -54,6 +54,8 @@ group :development do
   # Paperclip attachments
   gem "paperclip", "~> 4.3"
 
+  gem 'dotenv-rails'
+
   # gem 'bootstrap-confirm-rails'
 
 end
