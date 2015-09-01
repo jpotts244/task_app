@@ -13,13 +13,15 @@ class MessagesController < ApplicationController
 	def create
 		# binding.pry
 		# @user = User.find(params[:user_id])
+		#user_id refers to the recipient id 
 		@message = Message.new(message_params) 
 		if @message.save
 			# if successfully save
+			Message.create(message_params)
 			redirect_to user_messages_path
 		else
 			# otherwise go back to new msg page
-			flash[:error] = "Please Complete Content Input"
+			flash[:danger] = "Please Complete Content Input"
 			redirect_to new_user_message_path
 		end
 		
@@ -38,6 +40,7 @@ class MessagesController < ApplicationController
 
 	private
 	def message_params
+		#Dont panic if this doesnt work, it good, you need to be signed in! 
 		params
 		.require(:message)
 		.permit(:user_id, :content, :attachment, :sender_id)
