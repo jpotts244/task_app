@@ -12,4 +12,7 @@ class Task < ActiveRecord::Base
   validates :content, presence: true
   validates :duedate, presence: true
   validates :location, presence: true
+  
+
+
 end
