@@ -8,8 +8,9 @@
 </head>
 <body>
   <div class="content">
-	<%= render "/layouts/navbar" %>
-
+  	<div class="header">
+		<%= render "/layouts/navbar" %>
+	</div>
 <!-- 
   <h1><%= link_to "logout", logout_path, method: :delete %></h1><br> -->
 
@@ -18,8 +19,11 @@
 	    	<div class="alert alert-<%= message_type %>"><%= message %></div>
 		<% end %>
 		<%= yield %>
+
 	</div>
-  </div>	
-  
+  <div class="footer">
+  	<%= render "/layouts/footer" %>	
+  </div>
+  </div>
 </body>
 </html>
