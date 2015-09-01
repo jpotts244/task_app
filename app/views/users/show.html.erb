@@ -43,7 +43,6 @@
 </div>
 
 <script type="text/javascript">
-
 	var map;
 	var bounds;
 	var tasks = $(".tasks_class").data("tasks");
@@ -67,7 +66,7 @@
 		var address = task.location.replace(" ","+");
 		$.ajax({
 			type: "GET",
-			url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&key=AIzaSyC-mVHB9l99TzO9VTUGa6Cin6hHqWg9Vq8",
+			url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&key=<%= ENV['GOOGLE_GEOCODE_API'] %>",
 			success: function(data){
 				var marker = new google.maps.Marker({
 				    position: data.results[0].geometry.location,
@@ -118,5 +117,5 @@
 </script>
 
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9bVJOJfO4NXj3CEdj7LG4726C6xvlG3Q&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap">
 </script>
