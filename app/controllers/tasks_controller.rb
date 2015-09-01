@@ -2,7 +2,10 @@ class TasksController < ApplicationController
 # authentication callback before action, no authentication required to the excepts ones
  # before_action :authenticate, except: [:index]
 
+#GET /tasks
+
 # GET /tasks
+
   def index
     if current_user.id
       @user = User.find(current_user.id)
@@ -20,6 +23,7 @@ class TasksController < ApplicationController
 
 # GET /tasks/new
   def create
+
      # for validation for required field if the input is not valid redirect to the create new form, 
      @task = Task.new(task_params)
 
@@ -35,10 +39,34 @@ class TasksController < ApplicationController
      end
   end
 
+
 # GET /tasks/:id - show task
   def show
-    @task = Task.find(params[:id])
-  end
+    @task = Task.find(params[:id]) 
+city = @task.location
+city.gsub(" ", "%20")
+# response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
+
+# @weather_feel = response["current_observation"]["feelslike_f"]
+
+# @weather_condition = response["current_observation"]["weather"]   
+
+
+
+response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
+  headers:{
+    "X-Mashape-Key" => ENV["WEATHER_KEY"],
+    "Accept" => "application/json"
+  })
+  
+  @weather_day = response[1]["day_of_week"]
+  @weather_condition = response[0]["condition"]
+  @weather_feel = response[2]["high"]
+end
+
+
+
+
 
 # GET /tasks/:id/edit
   def edit
@@ -51,6 +79,7 @@ class TasksController < ApplicationController
     task.update(task_params)
     redirect_to current_user
   end
+
 
 # DELETE /tasks/:id
   def destroy

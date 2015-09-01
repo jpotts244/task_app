@@ -2,13 +2,14 @@
 
 <!-- 	<div class="col-md-11">
 
-		<h1>Task List</h1><hr>
+		<h1>Task List</h1>
 
  -->
 	<div class="col-md-11">
 
 		<div class="row">
 
+<<<<<<< HEAD
 			<div class="col-md-10">
 				<h1>Task List</h1>
 			</div>
@@ -17,6 +18,16 @@
 				<span id="showList" >view as list</span><br>
 				<span id="showMap" style="border-left:1px solid rgba(0,0,0,0.3);" class="btn btn-link">view on map</span>
 			</div><br>
+=======
+			<div class="col-md-8">
+			</div>
+
+
+			<div class="col-md-4 pull-right" style="padding-top:40px">
+				<span id="showList" style="padding: 0px 20px">view as list</span>
+				<span id="showMap" style="border-left:1px solid rgba(0,0,0,0.3);padding: 0px 20px;" class="btn btn-link">view on map</span>
+			</div>	
+>>>>>>> 237a7585d88a0c9189643bebe3c3dc20a0c38863
 
 		</div>
 
@@ -36,6 +47,7 @@
 		<div id="map-wrapper" style="display:none"> 
 			<div id="map" style='height: 400px;'></div>
 		</div>
+
 
 		<!-- pass task data from server to client, so javascript can handle that on map-->
 		<%= content_tag :div, class: "tasks_class", data: {tasks: @tasks} do %>

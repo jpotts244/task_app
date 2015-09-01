@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   		if @user.save
 			session[:user_id] = @user.id
 			flash[:success] = "Welcome to Task Manager!"
-  			redirect_to  @user
+			MyMailer.welcome_email(@user).deliver_now
+  			redirect_to @user
 		else	
 			render 'new'
   		end
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
 		redirect_to users_path
 	end
   end
+
   
 
 private
