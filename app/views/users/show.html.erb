@@ -1,10 +1,5 @@
 <div class="row">
 
-	<div class="col-md-11">
-
-		<h1>Task List</h1><hr>
-
-
 	<div class="col-md-9">
 
 		<div class="row">
@@ -14,8 +9,8 @@
 			</div>
 
 			<div class="col-md-4 pull-right" style="padding-top:40px">
-				<span id="showList" style="padding: 0px 20px">view as list</span>
-				<span id="showMap" style="border-left:1px solid rgba(0,0,0,0.3);padding: 0px 20px;" class="btn btn-link">view on map</span>
+				<span id="showList" style="padding: 0px 0px">view as list</span>
+				<span id="showMap" style="border-left:1px solid rgba(0,0,0,0.3);padding: 0px 0px;" class="btn btn-link">view on map</span>
 			</div>	
 
 		</div>
@@ -64,6 +59,8 @@
 	    tasks.forEach(function(task,index){
 	    	showMarker(tasks[index],map,bounds);
 	    });
+
+
 	}
 
 	function showMarker(task,map,bounds){
@@ -87,6 +84,9 @@
 			    })
 			    bounds.extend(marker.getPosition());	
 			    map.fitBounds(bounds);	
+			    if(map.getZoom()>14){
+					map.setZoom(14);
+			    }
 			}
 		});	
 	}	
