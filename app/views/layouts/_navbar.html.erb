@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">	
+<nav class="navbar navbar-default navbar-fixed-top collapsing">	
     <div class="navbar-header">
       <a class="navbar-brand">Task Manager</a>
     </div>
@@ -7,7 +7,7 @@
 	        <ul class="nav navbar-nav">
 	        	<li><a href="/users/<%= current_user.id%>">Home</a></li>
 	        	<li><a href="/users/<%= current_user.id%>/messages">Message Box</a></li>
-	 		</ul>
+            </ul>
         <% end %>
     </div>
     <div class="pull-right">
@@ -22,4 +22,7 @@
     		</a>
     	<% end %>
     </div>
+
+
+
 </nav>	
