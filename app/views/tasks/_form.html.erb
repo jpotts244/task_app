@@ -9,6 +9,7 @@
   </p>
 <% end %>
 
+
 <%= form_for @task, html: {multipart: true} do |f| %>
   <%= f.label :title%><br>
   <%= f.text_field :title, placeholder:'Title', class: "form-control"%><br>

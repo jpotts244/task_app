@@ -4,11 +4,11 @@
 
 		<h1> Here are your messages</h1><hr>
 		
-		<%= @message.sender_id %>
+		<%= @message.content %><br>
 		
-		<%= @message.content %>
-		
-		<%= @message.attachment %>
+		<%= @message.attachment %><br>
+		<p><u>From:</u></p>
+		<%= @sender_name %>
 		
 	</div><br>
 

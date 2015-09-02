@@ -4,7 +4,6 @@
 
 body{
   margin: 0 10%;
-  /*background-image: url("http://www.calautomuseum.org/wp-content/uploads/2014/12/lower-manhattan.jpg");*/
 }
 .temp{
   color: #296ACC;
@@ -26,9 +25,7 @@ td{
 .content{
   padding: 2% 2%;
 }
-/*.taskDisplay{
-  background-color: rgba(255, 255, 255, 0.8);
-}*/
+
 h1,h2{
   font-family: 'Lobster Two', cursive;
   text-align: center;
@@ -83,7 +80,6 @@ p{
   padding: 5px;
   text-decoration: none;
   text-transform: bold;
-
 }
 #listDisplay{
   width: auto;
@@ -99,3 +95,12 @@ p{
 
   margin: 5% 20%;
 }
+
+footer{
+  text-align: center;
+  padding-top: 50px;
+  bottom: 0;
+  left: 0;
+  position: relative;
+}
+
