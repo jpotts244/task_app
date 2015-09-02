@@ -4,6 +4,7 @@
 
 body{
   margin: 0 10%;
+
 }
 .temp{
   color: #296ACC;
@@ -15,10 +16,12 @@ body{
 td{
   padding: 10px;
 }
-
-.wtext{
+.justify{
+  text-align: justify;
+}
+.wtext, .location{
   margin: 10px 0;
-  color: #296ACC;
+  color: #666666;
   text-align: center;
   vertical-align: middle;
 }
@@ -96,6 +99,11 @@ p{
   margin: 5% 20%;
 }
 
+.hidetext{
+  color: white;
+  vertical-align: center;
+  text-align: center;
+}
 footer{
   text-align: center;
   padding-top: 50px;
@@ -104,3 +112,11 @@ footer{
   position: relative;
 }
 
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { ... }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { ... }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { ... }
