@@ -1,71 +1,92 @@
 <div class="row taskshow" > 
 
   <div class="col-sm-12">
-    <h2><%=@task.title%></h2><hr>
-    <div class="row">
-   <!--  <table class="table">
-      <tr>
-        <td class="weather wtext" valign="middle" style="width: 200px;"><strong class="task"><%= @task.location%></strong></td>
-        <td class="weather" style="width: 100px;"><img src="<%= @weather_img%>" align="middle"></td>
-        <td class="weather wtext" valign="middle" style="width: 200px;"><%= @weather_feel%>&#8457</td>
-      </tr>
-    </table><hr> -->
-    <div class="col-xs-8 col-sm-6">
-      <p>Due date: <strong class="task"><%= @task.duedate%></strong></p>
-      <p>Content: <strong class="task"><%= @task.content%></strong></p>
-          <% if @task.image_file_name == nil %>
-               <p></p>
-          <% else %>
-              <p id="imgattached"><%= image_tag @task.image.url(:medium)%></p>
-          <% end %>
-    </div>
-    <div class="col-xs-2 col-sm-6">
-      <p class="location"><strong><em class="task"><%= @task.location%></em></stong></p>
-      <p class="hidetext">.<img src="<%= @weather_img%>"  valign="middle" class="wtext">
-      <em class="temp"><%= @weather_feel%> &#8457</em></p>
-      <p class="justify">Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
-    </div>
-    <div class="col-xs-2 col-sm-6">
-      <p class="location"><strong><em class="task"><%= @task.location%></em></stong></p>
-      <p class="hidetext">.<img src="<%= @weather_img%>"  valign="middle" class="wtext">
-      <em class="temp"><%= @weather_feel%> &#8457</em></p>
-      <p class="justify">Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
-    </div>
-  </div>
-    
-    <div class="col-sm-12"><hr>
-      <a href='/tasks/<%= @task.id%>/edit'><button type="button" class="btn btn-primary  taskbutton left">Edit</button></a>
+                <h2><%=@task.title%></h2><hr>
 
-      <button type="button" class="btn btn-primary taskbutton right" data-toggle="modal" data-target="#myModal">Delete</button>
-    </div>
-    </div>
-<!--   </div>
-    <div class=".col-md-6 left">
-      <h3>Task owner</h3>
-      <p><%= current_user.name%></p>
-    </div>
- </div>  -->
-  <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Do you want to delete this task?</h4>
-        </div>
+                <!-- three sections for content-->
+                <div class="row">
 
-        <div class='modal-body'>
-          <h2><%= @task.title%></h2><hr>
-          <p>Due date: <strong class="task"><%= @task.duedate%></strong></p>
-          <p>Content: <strong class="task"><%= @task.content%></strong></p>
-          <p>Location:<strong class="task"><%= @task.location%></strong></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default modalbutton left" data-dismiss="modal"><%= link_to 'Cancel', current_user %></button>
-          <button type="button" class="btn btn-default modalbutton right" data-dismiss="modal"><%= link_to 'Delete', task_path,method: :delete %></button>
-        </div>
-      </div>
-    </div>
+                  <!-- task content -->
+                  <div class="col-xs-8 col-sm-6">
+                    <p>Due date: <strong class="task"><%= @task.duedate%></strong></p>
+                    <p>Content: <strong class="task"><%= @task.content%></strong></p>
+                        <% if @task.image_file_name == nil %>
+                             <p></p>
+                        <% else %>
+                            <p id="imgattached"><%= image_tag @task.image.url(:medium)%></p>
+                        <% end %>
+                  </div>
+
+                  
+                  <div class="col-xs-4 col-sm-6" style="border-left: 1px solid rgba(0,0,0,0.1)">
+                        <!-- users lists on task -->
+                        <div class="col-sm-12" style="border-bottom: 1px solid rgba(0,0,0,0.1)">
+                            <h4>Users on This Task</h4><br>
+                            <% @taskUsers.each do |taskUser| %>
+                              <div class="taskDisplay">
+                              <strong>Name:</strong> <%= taskUser.name %><br>
+                              <strong>Email:</strong> <%= taskUser.email %>
+                              </div>
+                            <% end %>
+                            <br>
+                        </div>
+
+                        <!-- weather display -->
+                        <div class="col-sm-12">
+                          <br><h4>Location and Weather</h4><br>
+                          <h5 class="location"><strong><em class="task"><%= @task.location%></em></stong></h5>
+                          <p class="hidetext">.<img src="<%= @weather_img%>"  valign="middle" class="wtext">
+                          <em class="temp"><%= @weather_feel%> &#8457</em></p>
+                          <p class="justify">Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
+                        </div>                    
+                  </div>
+
+
+              </div> <!-- end of three sections -->
+      
+              <!-- button container -->
+              <div class="col-sm-12"><hr>
+                <a href='/tasks/<%= @task.id%>/edit'><button type="button" class="btn btn-primary  taskbutton left">Edit</button></a>
+
+                <button type="button" class="btn btn-primary taskbutton right" data-toggle="modal" data-target="#myModal">Delete</button>
+              </div>
+
+              <!-- modal for delete confirmation -->
+              <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Do you want to delete this task?</h4>
+                    </div>
+
+                    <div class='modal-body'>
+                      <h2><%= @task.title%></h2><hr>
+                      <p>Due date: <strong class="task"><%= @task.duedate%></strong></p>
+                      <p>Content: <strong class="task"><%= @task.content%></strong></p>
+                      <p>Location:<strong class="task"><%= @task.location%></strong></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default modalbutton left" data-dismiss="modal"><%= link_to 'Cancel', current_user %></button>
+                      <button type="button" class="btn btn-default modalbutton right" data-dismiss="modal"><%= link_to 'Delete', task_path,method: :delete %></button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+    </div> <!-- end of col-sm-12 -->
+
 </div>
-</div>
+
+<!-- select email to invite them to task -->
+<!-- <p>Input User's Email to Invite Them to Task</p> -->
+<%= form_tag task_path, :method => "get" do %>
+  <%= label_tag :"Invite other user to join the task" %>
+  <%= text_field :recipients, params[:recipients], class: "recipientInput form-control" %>
+  <div class="recipientInputMsg" style="color:red"></div><br>
+  <%= submit_tag :"invite people", class: "btn btn-default" %>
+<% end %>
 
 
+<%= content_tag :div, class: "users_class", data: {users: @users} do %>
+<% end %>

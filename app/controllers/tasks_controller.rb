@@ -44,48 +44,76 @@ class TasksController < ApplicationController
 # GET /tasks/:id - show task
   def show
     @task = Task.find(params[:id]) 
+    @taskUsers = @task.users
+
+    # weather API
     city = @task.location
     city.gsub(" ", "%20")
+    response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
+      headers:{
+        "X-Mashape-Key" => ENV["WEATHER_KEY"],
+        "Accept" => "application/json"
+    })
 
-response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
-  headers:{
-    "X-Mashape-Key" => ENV["WEATHER_KEY"],
-    "Accept" => "application/json"
-  })
-  
-  @weather_day = response[1]["day_of_week"]
-  @weather_condition = response[0]["condition"]
-  @weather_feel = response[2]["high"]
-  if @weather_condition.include? "Partly cloudy"
-    @weather_img = "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif"
-  elsif @weather_condition.include? "cloudy"
-    @weather_img = "http://icons.wxug.com/i/c/k/cloudy.gif"
-  elsif @weather_condition.include? "Clear"
-    @weather_img = "http://icons-ak.wxug.com/i/c/k/clear.gif"
-  elsif @weather_condition.include? "Light rain"
-    @weather_img = "http://icons.wxug.com/i/c/k/chancerain.gif"
-  elsif @weather_condition.include? "Rain"
-    @weather_img = "http://icons-ak.wxug.com/i/c/k/rain.gif"
-  elsif @weather_condition.include? "Drizzle"
-    @weather_img = "http://icons.wxug.com/i/c/k/chancerain.gif"
-  elsif @weather_condition.include? "Thunderstorm"
-    @weather_img = "http://icons.wxug.com/i/c/k/chancetstorms.gif"
-  elsif @weather_condition.include? "sleet"
-    @weather_img = "http://icons.wxug.com/i/c/k/sleet.gif"
-  elsif @weather_condition.include? "Snow"
-    @weather_img ="http://icons.wxug.com/i/c/k/chancesnow.gif"
-  elsif @weather_condition.include? "fog"
-    @weather_img ="http://icons.wxug.com/i/c/k/fog.gif"    
-  elsif @weather_condition.include? "hazy"
-    @weather_img ="http://icons.wxug.com/i/c/k/fog.gif"  
+    @weather_day = response[1]["day_of_week"]
+    @weather_condition = response[0]["condition"]
+    @weather_feel = response[2]["high"]
+    if @weather_condition.include? "Partly cloudy"
+      @weather_img = "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif"
+    elsif @weather_condition.include? "cloudy"
+      @weather_img = "http://icons.wxug.com/i/c/k/cloudy.gif"
+    elsif @weather_condition.include? "Clear"
+      @weather_img = "http://icons-ak.wxug.com/i/c/k/clear.gif"
+    elsif @weather_condition.include? "Light rain"
+      @weather_img = "http://icons.wxug.com/i/c/k/chancerain.gif"
+    elsif @weather_condition.include? "Rain"
+      @weather_img = "http://icons-ak.wxug.com/i/c/k/rain.gif"
+    elsif @weather_condition.include? "Drizzle"
+      @weather_img = "http://icons.wxug.com/i/c/k/chancerain.gif"
+    elsif @weather_condition.include? "Thunderstorm"
+      @weather_img = "http://icons.wxug.com/i/c/k/chancetstorms.gif"
+    elsif @weather_condition.include? "sleet"
+      @weather_img = "http://icons.wxug.com/i/c/k/sleet.gif"
+    elsif @weather_condition.include? "Snow"
+      @weather_img ="http://icons.wxug.com/i/c/k/chancesnow.gif"
+    elsif @weather_condition.include? "fog"
+      @weather_img ="http://icons.wxug.com/i/c/k/fog.gif"    
+    elsif @weather_condition.include? "hazy"
+      @weather_img ="http://icons.wxug.com/i/c/k/fog.gif"  
+    end
+
+    # handle invitation send out
+    @users = User.all
+    # send out inviation if params[:recipients] exists
+    if params[:recipients]
+        @recipients = params[:recipients][0].split(",")
+        title = "Invitation to join task: "+@task.title
+        content = "<p>"+current_user.name+" invites you to join a task, do you accept?<p>"+
+                "<a class='btn btn-success' href='/acceptinvite/"+@task.id.to_s+"' >Accept</a><br>"  
+        @newMessage = Message.create({title: title, content: content, sender_id: current_user.id})
+        @recipients.each do |recipient|
+          Messaging.create({user:User.find_by_email(recipient),message:@newMessage})
+        end
+        flash[:success] = "Invitation sent."
+        redirect_to current_user
+    end  
 
   end
-end
 
-def search 
-
-end
-
+  # accept invitation route
+  def acceptinvite
+    if Task.exists?(:id => params[:id])
+      if Tasking.find_by_user_id_and_task_id(current_user.id,params[:id])
+        flash[:info] = "You have joined the task already"
+      else
+        Tasking.create({user:current_user,task:Task.find(params[:id])})
+        flash[:success] = "Task has been added to your task list."      
+      end
+    else
+        flash[:danger] = "Task has been removed."
+    end
+    redirect_to current_user
+  end
 
 # GET /tasks/:id/edit
   def edit
@@ -104,7 +132,17 @@ end
   def destroy
     # double confirmetion for the delete
     task = Task.find(params[:id])
+
+    # delete taskings first
+    @taskings = task.taskings
+    @taskings.each do |tasking|
+      tasking.destroy
+    end
+
+    # then delete task
     task.destroy
+
+    flash[:info] = "Task has been deleted"
     redirect_to current_user
   end
 

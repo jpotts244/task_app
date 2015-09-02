@@ -1,11 +1,17 @@
-/*@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
-@import url(https://fonts.googleapis.com/css?family=Lobster+Two);*/
-@import url(https://fonts.googleapis.com/css?family=Khula:800,600,700);
+/*custom css styles*/
 
-body{
+body {
+  padding-top: 70px;
   margin: 0 10%;
-
 }
+
+.taskDisplay {
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
 .temp{
   color: #296ACC;
   font-size: 1em;
@@ -29,11 +35,6 @@ td{
   padding: 2% 2%;
 }
 
-/*.taskDisplay{
-  background-color: rgba(255, 255, 255, 0.8);
-}*/
-/*h1,h2{
-
 
 h1,h2{
   font-family: 'Lobster Two', cursive;
@@ -42,9 +43,6 @@ h1,h2{
 }
 p{
   font-family: 'Lobster Two', cursive;
-  /*font-family: 'Shadows Into Light', cursive;*/
-/*  font-size: 1.3em;
-  color: #666666;*/
 }
 
 .task{
@@ -90,6 +88,7 @@ p{
   text-decoration: none;
   text-transform: bold;
 }
+
 #listDisplay{
   width: auto;
   height: 450px;
@@ -201,5 +200,3 @@ welcome users#index page styling
 .hidden {
   visibility: hidden;
 }
-
-
