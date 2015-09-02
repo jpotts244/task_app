@@ -20,15 +20,16 @@
           <% end %>
     </div>
     <div class="col-xs-2 col-sm-6">
-      <p class="location"><em class="task"><%= @task.location%></em></p>
+      <p class="location"><strong><em class="task"><%= @task.location%></em></stong></p>
       <p class="hidetext">.<img src="<%= @weather_img%>"  valign="middle" class="wtext">
       <em class="temp"><%= @weather_feel%> &#8457</em></p>
       <p class="justify">Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
     </div>
     <div class="col-xs-2 col-sm-6">
-    <p><img src="<%= @weather_img%>"  valign="middle" class="wtext"></p>
-    <p class="temp" valign="middle" class="wtext"><%= @weather_feel%> &#8457</p>
-      <p>Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
+      <p class="location"><strong><em class="task"><%= @task.location%></em></stong></p>
+      <p class="hidetext">.<img src="<%= @weather_img%>"  valign="middle" class="wtext">
+      <em class="temp"><%= @weather_feel%> &#8457</em></p>
+      <p class="justify">Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
     </div>
   </div>
     

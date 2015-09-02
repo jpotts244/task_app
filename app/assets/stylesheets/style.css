@@ -1,6 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
-@import url(https://fonts.googleapis.com/css?family=Lobster+Two);
-
+/*@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two);*/
+@import url(https://fonts.googleapis.com/css?family=Khula:800,600,700);
 
 body{
   margin: 0 10%;
@@ -29,6 +29,12 @@ td{
   padding: 2% 2%;
 }
 
+/*.taskDisplay{
+  background-color: rgba(255, 255, 255, 0.8);
+}*/
+/*h1,h2{
+
+
 h1,h2{
   font-family: 'Lobster Two', cursive;
   text-align: center;
@@ -37,8 +43,8 @@ h1,h2{
 p{
   font-family: 'Lobster Two', cursive;
   /*font-family: 'Shadows Into Light', cursive;*/
-  font-size: 1.3em;
-  color: #666666;
+/*  font-size: 1.3em;
+  color: #666666;*/
 }
 
 .task{
@@ -86,7 +92,7 @@ p{
 }
 #listDisplay{
   width: auto;
-  height: 650px;
+  height: 450px;
   overflow: scroll;
 }
 
@@ -112,11 +118,88 @@ footer{
   position: relative;
 }
 
+
 /* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) { ... }
+@media (min-width: @screen-sm-min) {
+ }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) { ... }
+@media (min-width: @screen-md-min) {
+
+ }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) { ... }
+@media (min-width: @screen-lg-min) {
+
+}
+
+/*******************************
+welcome users#index page styling
+********************************/
+@media screen and (max-width: 480px) {
+ font-family: 'Khula', sans-serif;
+  margin-top: 1%;
+  font-weight: 800px;
+  font-size: 20px;
+
+}
+
+.background {
+  height: 720px;
+  background-image: url(welcome_image_2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.info-welcome {
+    font-family: 'Khula', sans-serif;
+    font-weight: 600px;
+    font-size: 3.9vmax;
+    left:16%;
+    top: 140px;
+    color:white;
+}
+.welcome {
+  font-family: 'Khula', sans-serif;
+  margin-top: 1%;
+  font-weight: 800px;
+  font-size: 5.9vw;
+  color:white;
+}
+
+.info {
+  margin-top: 1px;
+}
+
+
+.welcome-button {
+    position: relative;
+    padding-top: 10%;
+    top: 201px;
+    left: 37%;
+    right: -420px;
+    bottom: -191px;
+    padding: 10px 44px;
+    border: 0 none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 2em;
+    background:white;
+    color:grey;
+    opacity:0.8;
+    border: none;
+  
+}
+ 
+
+.btn-primary:hover  {
+
+  background-color: black;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+
