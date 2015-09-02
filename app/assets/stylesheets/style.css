@@ -58,3 +58,10 @@ p{
   text-decoration: none;
   text-transform: bold;
 }
+
+footer{
+  text-align: center;
+  padding-top: 50px;
+  position: relative;
+}
+
