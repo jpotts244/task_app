@@ -135,7 +135,8 @@ welcome users#index page styling
 .info-welcome {
     font-family: 'Khula', sans-serif;
     font-weight: 600px;
-    left:20%;
+    font-size: 3.9vmax;
+    left:16%;
     top: 140px;
     color:white;
 }
@@ -143,7 +144,7 @@ welcome users#index page styling
   font-family: 'Khula', sans-serif;
   margin-top: 1%;
   font-weight: 800px;
-  font-size: 5em;
+  font-size: 5.9vw;
   color:white;
 }
 
@@ -175,6 +176,10 @@ welcome users#index page styling
 .btn-primary:hover  {
 
   background-color: black;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 

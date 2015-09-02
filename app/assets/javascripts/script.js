@@ -14,6 +14,17 @@ $(document).ready(function(){
 
 	$('.statusddl').val(2)
 
+//hide footer git hub//
+	if(window.location.pathname === "/users"){
+		$("div .footer").hide();
+	}
+	if(window.location.pathname === "/login"){
+		$("div .footer").hide();
+	}
+	if(window.location.pathname === "/new"){
+		$("div .footer").hide();
+	}
+
 })
 
 // $(document).ready(function(){
@@ -54,5 +65,3 @@ $(document).ready(function(){
 //         }
 //   });
 
-
->>>>>>> 29aca69b6a9ac852fc55eae7c0446be847eae577

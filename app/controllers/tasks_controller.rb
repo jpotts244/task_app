@@ -46,24 +46,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id]) 
     city = @task.location
     city.gsub(" ", "%20")
-<<<<<<< HEAD
-
-    response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
-      headers:{
-        "X-Mashape-Key" => ENV["WEATHER_KEY"],
-        "Accept" => "application/json"
-      })
-  
-    @weather_day = response[1]["day_of_week"]
-    @weather_condition = response[0]["condition"]
-    @weather_feel = response[2]["high"]
-  end
-=======
-# response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
-
-# @weather_feel = response["current_observation"]["feelslike_f"]
-
-# @weather_condition = response["current_observation"]["weather"]   
 
 response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
   headers:{
@@ -104,10 +86,6 @@ def search
 
 end
 
-
-
-
->>>>>>> 29aca69b6a9ac852fc55eae7c0446be847eae577
 
 # GET /tasks/:id/edit
   def edit
