@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	has_many :taskings
 	has_many :tasks, through: :taskings
-	has_many :messages
+	has_many :messagings
+	has_many :messages, through: :messagings
 
 	validates :name, presence: true,
 					 uniqueness: { case_sensitive: false }

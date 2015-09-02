@@ -1,11 +1,11 @@
-<h1>Write a New Message</h1><br>
-
-<%= form_for([@user, @message]) do |f| %>
+<%= form_for(@message) do |f| %>
 
 	<%= f.label "Recipient" %><br>
-	<%= f.text_field :user_id, id: "recipientInput", class: "form-control", data: {role: "tagsinput"}%><br>
-	<div id="recipientInputMsg"></div>
-	<button class="btn btn-default">Add Recipient</button><br><br>
+
+	<input type="text" id="recipientInput" name="recipients" class="form-control" data-role="tagsinput">
+	<div id="recipientInputMsg" style="color:red"></div><br>
+	<%= f.label :title %>
+	<%= f.text_field :title, class: "form-control" %><br>
 	<%= f.label :content %>
 	<%= f.text_area :content, class: "form-control", :cols=>20, :rows=>6%><br>
 	<%= f.label :attachment %>

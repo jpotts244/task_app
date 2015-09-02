@@ -1,52 +1,60 @@
 class MessagesController < ApplicationController
 
 	def index
-		@user = User.find(params[:user_id])
+		@user = current_user
 		@messages = @user.messages
 	end
 
 	def new
 		# @user = User.search(params[:search], params[:email])
-		@user = User.find(params[:user_id])
+		# @user = User.find(params[:user_id])
 		@message = Message.new
+		@messaging = Messaging.new
 		@users = User.all
 	end
 
 	def create
-		# binding.pry
 		# @user = User.find(params[:user_id])
 		#user_id refers to the recipient id 
-		@message = Message.new(message_params) 
+		@message = Message.new(message_params)
+
 		if @message.save
-			# if successfully save
-			Message.create(message_params)
-			redirect_to user_messages_path
+			@recipients = params[:recipients].split(",")
+			@recipients.each do |recipient|
+				messaging = Messaging.new
+				Messaging.create({user:User.find_by(:email => recipient),message:@message})
+			end
+
+			flash[:success] = "Message sent successfully."
+
+			@user = current_user
+			@messages = @user.messages
+			render "index"
 		else
-			# otherwise go back to new msg page
-			flash[:danger] = "Please Complete Content Input"
-			redirect_to new_user_message_path
+			flash[:danger] = "Errors occur when creating message."
+			render "new"
 		end
-		
+
 	end
 
 	def show
-		@user = User.find(params[:user_id])
+		@user = current_user
 		@message = Message.find(params[:id])
 		@sender = Message.find(params[:id]).sender_id
 	end
 
 	def destroy
-		@message = Message.find(params[:id])
-		@message.delete
-		redirect_to user_messages_path
+		@messaging = Messaging.find_by_user_id_and_message_id(current_user.id,params[:id])
+		@messaging.delete
+		flash[:warning] = "Message deleted."
+		redirect_to messages_path
 	end
 
 	private
 	def message_params
-		#Dont panic if this doesnt work, it good, you need to be signed in! 
 		params
 		.require(:message)
-		.permit(:user_id, :content, :attachment)
+		.permit(:title,:content, :attachment)
 		.merge({sender_id: current_user.id})
 	end
 
