@@ -1,10 +1,31 @@
-/*@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
-@import url(https://fonts.googleapis.com/css?family=Lobster+Two);*/
-@import url(https://fonts.googleapis.com/css?family=Khula:800,600,700);
+/*custom css styles*/
+@import url(https://fonts.googleapis.com/css?family=Courgette);
 
-body{
+
+body {
+  padding-top: 70px;
   margin: 0 10%;
-
+  font-family: 'Courgette', cursive;
+  color: #666666;
+}
+h4{
+  font-size: 1.6em;
+}
+h5{
+  font-size: 1.4em;
+}
+h6{
+  font-size: 1em;
+}
+.taskDisplay {
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 10px;
+}
+.btn{
+  font-size: 1.3em;
+}
 .temp{
   color: #296ACC;
   font-size: 1em;
@@ -17,6 +38,7 @@ td{
 }
 .justify{
   text-align: justify;
+  text-transform: none;
 }
 .wtext, .location{
   margin: 10px 0;
@@ -28,26 +50,16 @@ td{
   padding: 2% 2%;
 }
 
-/*.taskDisplay{
-  background-color: rgba(255, 255, 255, 0.8);
-}*/
-/*h1,h2{
-
-
 h1,h2{
-  font-family: 'Lobster Two', cursive;
   text-align: center;
   color: #666666;
 }
 p{
-  font-family: 'Lobster Two', cursive;
-  /*font-family: 'Shadows Into Light', cursive;*/
-/*  font-size: 1.3em;
-  color: #666666;*/
+  font-size: 1.4em;
 }
 
 .task{
-  font-size: 1em;
+  font-size: 1.2em;
   color: #296ACC;
   padding-left: 2%; 
 }
@@ -65,10 +77,10 @@ p{
   width: auto;
   vertical-align: center;
 }
-.btn-primary{
+/*.btn-primary{
   width: auto;
   padding: 5px;
-}
+}*/
 
 /* new style*/
 .right{
@@ -82,13 +94,14 @@ p{
 .taskshow{
   vertical-align: center;
 }
-.taskbutton, .modalbutton{
+.taskbutton, .modalbutton, .btn-primary{
   color: white;
   width: 100px;
   padding: 5px;
   text-decoration: none;
   text-transform: bold;
 }
+
 #listDisplay{
   width: auto;
   height: 450px;
@@ -200,5 +213,3 @@ welcome users#index page styling
 .hidden {
   visibility: hidden;
 }
-
-

@@ -5,6 +5,7 @@
 
 ### Project Description
 
+
 ### Team
 * Jacqueline Potts
 * Xi Zhang
@@ -53,7 +54,7 @@
 [Routes](app/assets/images/routes2.png)
 
 #### Database Design(ERD Diagrams)
-[Trello](app/assets/images/ERD.png)
+[ERD](app/assets/images/ERD.png)
 
 ### Agile Development
 [Trello](app/assets/images/trello.png)

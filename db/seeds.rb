@@ -9,14 +9,27 @@
 User.delete_all
 Task.delete_all
 Message.delete_all
+Messaging.delete_all
 
 a = User.create({name:"Reyes",email:"reyes@test.com",password:"reyes"})
 b = User.create({name:"Xi",email:"xi@test.com",password:"xi"})
+c = User.create({name:"Jackie",email:"jackie@test.com",password:"jackie"})
+d = User.create({name:"Viki",email:"viki@test.com",password:"viki"})
 
-c = Task.create({title:"task1",content:"it's a task",duedate:"today",location:"nyc"})
-d = Task.create({title:"task2",content:"it's another task",duedate:"tomorrow",location:"brooklyn"})
 
-Tasking.create(user:a,task:c)
-Tasking.create(user:a,task:d)
+e = Task.create({title:"task1",content:"it's a task",duedate:"today",location:"nyc"})
+f = Task.create({title:"task2",content:"it's another task",duedate:"tomorrow",location:"brooklyn"})
 
-Message.create({content:"hi",attachment:"no attach",user_id: a.id})
+Tasking.create(user:a,task:e)
+Tasking.create(user:a,task:f)
+Tasking.create(user:b,task:f)
+
+
+g = Message.create({title:"hi",content:"how are you",attachment:"no attach",sender_id: 3})
+h = Message.create({title:"Welcome to task manager",content:"Hi, feel free to explore the website.",attachment:"no attach"})
+
+Messaging.create(user:a,message:g);
+Messaging.create(user:a,message:h);
+Messaging.create(user:b,message:h);
+Messaging.create(user:c,message:h);
+Messaging.create(user:d,message:h);
