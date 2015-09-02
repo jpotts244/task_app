@@ -17,6 +17,7 @@ h5{
 h6{
   font-size: 1em;
 }
+
 .taskDisplay {
   border: 1px solid rgba(0,0,0,0.3);
   border-radius: 5px;
@@ -50,15 +51,6 @@ td{
 .content{
   padding: 2% 2%;
 }
-
-
-
-/*.taskDisplay{
-  background-color: rgba(255, 255, 255, 0.8);
-}*/
-/*h1,h2{
-
-
 
 h1,h2{
   text-align: center;
@@ -114,8 +106,10 @@ p{
 
 #listDisplay{
   width: auto;
-  height: 450px;
+
+  height: 400px;
   overflow: scroll;
+  border: none;
 }
 
 .taskDisplay{
@@ -150,26 +144,10 @@ footer{
 /*******************************
 welcome users#index page styling
 ********************************/
-@media screen and (max-width: 480px) {
- font-family: 'Khula', sans-serif;
-  margin-top: 1%;
-  font-weight: 800px;
-  font-size: 20px;
-
-}
-
-.background {
-  height: 720px;
-  background-image: url(welcome_image_2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  
-}
-
-.info-welcome {
+@media screen and (min-width: 480px) {
+ .info-welcome {
     font-family: 'Khula', sans-serif;
     font-weight: 600px;
-    font-size: 3.9vmax;
     left:16%;
     top: 140px;
     color:white;
@@ -184,27 +162,70 @@ welcome users#index page styling
 
 .info {
   margin-top: 1px;
+  font-size: 3.9vmax;
+}
+
+}
+
+.background {
+  height: 720px;
+  background-image: url(welcome_image_2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.info-welcome {
+    font-family: 'Khula', sans-serif;
+    font-weight: 600px;
+    left:8%;
+    top: 190px;
+    color:white;
+}
+.welcome {
+  font-family: 'Khula', sans-serif;
+  text-align: center;
+  margin-top: 1%;
+  font-weight: 800px;
+  font-size: 3.9vw;
+  color:white;
+}
+
+.info {
+  font-size: 3vmax;
+  text-align: center;
+  left: 10%;
+ 
 }
 
 
 .welcome-button {
     position: relative;
+    text-align: center;
+    top: 198px;
+    left: 37%;
+    padding: 10px 44px;
+    border: 0 none;
+    font-weight: 600;
+
     padding: 1% 5%;
-    margin-top: 10%;
-/*    top: 201px;*/
-    left: 42%;
-/*    right: -420px;*/
+    margin-top: 1%;
+    top: 201px;
+    left: 39%;
+    right: -420px;
     bottom: -191px;
-    text-transform: capitalize;
-    /*padding: 10px 44px;*/
-    /*border: 0 none;*/
+  
+    padding: 10px 44px;
+    border: 0 none;
     font-weight: bold;
     letter-spacing: 1px;
-    font-size: 2em;
+    font-size: 3.9vw;
     background:white;
     color:grey;
     opacity:0.8;
     border: none;
+    width: auto;
+    font-family: 'Khula', sans-serif;
   
 }
  
@@ -214,8 +235,10 @@ welcome users#index page styling
   background-color: black;
 }
 
+
 .hidden {
   visibility: hidden;
 
 }
+
 
