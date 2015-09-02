@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
 	end
 
 	def new
+		# @user = User.search(params[:search], params[:email])
 		@user = User.find(params[:user_id])
 		@message = Message.new
 	end
@@ -30,6 +31,8 @@ class MessagesController < ApplicationController
 	def show
 		@user = User.find(params[:user_id])
 		@message = Message.find(params[:id])
+		@sender = Message.find(params[:id]).sender_id
+		@sender_name = User.find(id = @sender).name
 	end
 
 	def destroy
