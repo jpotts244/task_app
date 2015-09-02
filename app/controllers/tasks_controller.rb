@@ -44,8 +44,8 @@ class TasksController < ApplicationController
 # GET /tasks/:id - show task
   def show
     @task = Task.find(params[:id]) 
-city = @task.location
-city.gsub(" ", "%20")
+    city = @task.location
+    city.gsub(" ", "%20")
 # response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
 
 # @weather_feel = response["current_observation"]["feelslike_f"]
@@ -61,6 +61,30 @@ response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?lo
   @weather_day = response[1]["day_of_week"]
   @weather_condition = response[0]["condition"]
   @weather_feel = response[2]["high"]
+  if @weather_condition.include? "Partly cloudy"
+    @weather_img = "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif"
+  elsif @weather_condition.include? "cloudy"
+    @weather_img = "http://icons.wxug.com/i/c/k/cloudy.gif"
+  elsif @weather_condition.include? "Clear"
+    @weather_img = "http://icons-ak.wxug.com/i/c/k/clear.gif"
+  elsif @weather_condition.include? "Light rain"
+    @weather_img = "http://icons.wxug.com/i/c/k/chancerain.gif"
+  elsif @weather_condition.include? "Rain"
+    @weather_img = "http://icons-ak.wxug.com/i/c/k/rain.gif"
+  elsif @weather_condition.include? "Drizzle"
+    @weather_img = "http://icons.wxug.com/i/c/k/chancerain.gif"
+  elsif @weather_condition.include? "Thunderstorm"
+    @weather_img = "http://icons.wxug.com/i/c/k/chancetstorms.gif"
+  elsif @weather_condition.include? "sleet"
+    @weather_img = "http://icons.wxug.com/i/c/k/sleet.gif"
+  elsif @weather_condition.include? "Snow"
+    @weather_img ="http://icons.wxug.com/i/c/k/chancesnow.gif"
+  elsif @weather_condition.include? "fog"
+    @weather_img ="http://icons.wxug.com/i/c/k/fog.gif"    
+  elsif @weather_condition.include? "hazy"
+    @weather_img ="http://icons.wxug.com/i/c/k/fog.gif"  
+
+  end
 end
 
 def search 
