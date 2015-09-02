@@ -1,7 +1,8 @@
 <div class="row taskshow" > 
 
   <div class="col-sm-12">
-                <h2><%=@task.title%></h2><hr>
+              <h2><%=@task.title%></h2><hr>
+
 
                 <!-- three sections for content-->
                 <div class="row">
@@ -24,8 +25,8 @@
                             <h4>Users on This Task</h4><br>
                             <% @taskUsers.each do |taskUser| %>
                               <div class="taskDisplay">
-                              <strong>Name:</strong> <%= taskUser.name %><br>
-                              <strong>Email:</strong> <%= taskUser.email %>
+                              <h6>Name: <strong><%= taskUser.name %></h6>
+                              <h6>Email: <strong><%= taskUser.email %></strong></h6>
                               </div>
                             <% end %>
                             <br>
@@ -34,10 +35,10 @@
                         <!-- weather display -->
                         <div class="col-sm-12">
                           <br><h4>Location and Weather</h4><br>
-                          <h5 class="location"><strong><em class="task"><%= @task.location%></em></stong></h5>
+                          <h5 class="location"><em class="task"><%= @task.location%></em></h5>
                           <p class="hidetext">.<img src="<%= @weather_img%>"  valign="middle" class="wtext">
                           <em class="temp"><%= @weather_feel%> &#8457</em></p>
-                          <p class="justify">Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
+                          <h5 class="justify">Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></h5>
                         </div>                    
                   </div>
 
@@ -84,7 +85,7 @@
   <%= label_tag :"Invite other user to join the task" %>
   <%= text_field :recipients, params[:recipients], class: "recipientInput form-control" %>
   <div class="recipientInputMsg" style="color:red"></div><br>
-  <%= submit_tag :"invite people", class: "btn btn-default" %>
+  <%= submit_tag :"Invite", class: "btn btn-primary" %>
 <% end %>
 
 
