@@ -44,15 +44,16 @@ class TasksController < ApplicationController
 # GET /tasks/:id - show task
   def show
     @task = Task.find(params[:id]) 
+
+    # weather API
     city = @task.location
     city.gsub(" ", "%20")
-
     response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
       headers:{
         "X-Mashape-Key" => ENV["WEATHER_KEY"],
         "Accept" => "application/json"
     })
-  
+
     @weather_day = response[1]["day_of_week"]
     @weather_condition = response[0]["condition"]
     @weather_feel = response[2]["high"]
@@ -80,8 +81,9 @@ class TasksController < ApplicationController
       @weather_img ="http://icons.wxug.com/i/c/k/fog.gif"  
     end
 
+    # handle invitation send out
     @users = User.all
-    # send out inviation is params[:recipients] exists
+    # send out inviation if params[:recipients] exists
     if params[:recipients]
         @recipients = params[:recipients][0].split(",")
         title = "Invitation to join task: "+@task.title
@@ -97,6 +99,7 @@ class TasksController < ApplicationController
 
   end
 
+  # accept invitation route
   def acceptinvite
     if Task.exists?(:id => params[:id])
       if Tasking.find_by_user_id_and_task_id(current_user.id,params[:id])

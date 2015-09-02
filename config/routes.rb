@@ -20,13 +20,12 @@ Rails.application.routes.draw do
   resources :tasks
 
   get '/acceptinvite/:id' => "tasks#acceptinvite"
+  get '/search' => "tasks#search"
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"
   delete '/logout' => "sessions#destroy"
 
   
-
-
   # Example resource route with options:
   #   resources :products do
   #     member do
