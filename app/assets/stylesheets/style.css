@@ -21,10 +21,12 @@ td{
   color: #296ACC;
   text-align: center;
   vertical-align: middle;
+}
 
 .content{
   padding: 2% 2%;
 }
+
 
 h1,h2{
   font-family: 'Lobster Two', cursive;
@@ -103,7 +105,8 @@ footer{
   left: 0;
   position: relative;
 }
-.visible-*-inline{
+
+/*.visible-*-inline{
   display: inline;
-}
+}*/
 
