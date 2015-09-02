@@ -3,13 +3,13 @@
 <div class="container-fluid">	
     <div class="navbar-header">
 
-      <a class="navbar-brand">Task Manager</a>
+      <a class="navbar-brand" href="/">Task Manager</a>
     
     <div class="hidden-xs hidden-sm">
        	<% if logged_in? %>
 	        <ul class="nav navbar-nav">
 	        	<li><a href="/users/<%= current_user.id%>">Home</a></li>
-	        	<li><a href="/users/<%= current_user.id%>/messages">Message Box</a></li>
+	        	<li><a href="/messages">Message Box</a></li>
             </ul>
 
         <% end %>
@@ -26,7 +26,7 @@
 
 
 
-    		<a class="navbar-brand hidden-sm hidden-xs" href="/login">
+    		<a class="navbar-brand" href="/login">
 
     			<span class="glyphicon glyphicon-log-in" style="margin-right:10px" ></span>Log In
     		</a>

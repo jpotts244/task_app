@@ -2,6 +2,8 @@ class TasksController < ApplicationController
 # authentication callback before action, no authentication required to the excepts ones
  # before_action :authenticate, except: [:index]
 
+  before_action :authenticate
+
 #GET /tasks
 
 # GET /tasks
