@@ -120,10 +120,16 @@ footer{
   left: 0;
   position: relative;
 }
-
+/******navbar*******/
 .navbar-header{
   float: none;
 } 
+.navbar-style{
+   background-color: #290029;
+   border:none;
+    font-weight: 700px;
+    color: #FFFFFF;
+}
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) {
