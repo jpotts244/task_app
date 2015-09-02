@@ -6,10 +6,15 @@
 
 		<ul>
 			<% @messages.each do |message| %>
-			<li>
-				<a href='/messages/<%= message.id%>'><%=  message.title %></a>
-			
-			</li><br>
+			<a href='/messages/<%= message.id%>'><div class="taskDisplay">
+				<%=  message.title %><br>
+				From:
+				<% if message.sender_id %>
+				 	<%=  User.find(message.sender_id).name %>
+				<% else %>
+					system message
+				<% end %>
+			</div></a>
 			<% end %>
 			
 		</ul>

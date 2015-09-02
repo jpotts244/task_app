@@ -1,12 +1,13 @@
+<div class="row taskshow" > 
+
+  <div class="col-md-12 col-md-offset-0">
+
   <% form_tag tasks_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
-
-
-
 
 
 <%= form_for @task, html: {multipart: true} do |f| %>
@@ -22,3 +23,6 @@
   <%= f.file_field :image, placeholder:'Attachment', class: "form-control"%><br>
   <%= f.submit class: "btn btn-primary htn-lg" %>
 <% end %>
+
+</div>
+</div>

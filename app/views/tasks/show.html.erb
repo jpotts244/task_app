@@ -1,34 +1,41 @@
-<div class="row task" >  
-  <div class="col-md-6 col-md-offset-3">
-    <h2><%= @task.title%></h2><hr>
+<div class="row taskshow" > 
+
+  <div class="col-sm-12">
+    <h2><%=@task.title%></h2>
+
+    <table class="table">
+      <tr>
+        <td class="weather wtext" valign="middle" style="width: 200px;"><strong class="task"><%= @task.location%></strong></td>
+        <td class="weather" style="width: 100px;"><img src="<%= @weather_img%>" align="middle"></td>
+        <td class="weather wtext" valign="middle" style="width: 200px;"><%= @weather_feel%>&#8457</td>
+      </tr>
+    </table><hr>
+  <div class="col-xs-7 .col-sm-6">
+    
     <p>Due date: <strong class="task"><%= @task.duedate%></strong></p>
     <p>Content: <strong class="task"><%= @task.content%></strong></p>
     <p>Location:<strong class="task"><%= @task.location%></strong></p>
         <% if @task.image_file_name == nil %>
              <p></p>
         <% else %>
-            <p><%= image_tag @task.image.url(:medium)%></p>
+            <p id="imgattached"><%= image_tag @task.image.url(:medium)%></p>
         <% end %>
-      <hr><button type="button" class="btn btn-info btn-lg cancel"><%= link_to 'Edit task', edit_task_path, class:"alignleft" %></button>
+    </div><br>
+    <div class=".col-xs-5 .col-sm-6">
+  <!--   <p><img src="<%= @weather_img%>"></p>
+    <p class="temp"><%= @weather_feel%></p> -->
+      <p>Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
+    </div><br>
+    
+  </div><hr>
 
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Delete</button>
+  <div class="col-sm-12"><hr>
+    <a href='/tasks/<%= @task.id%>/edit'><button type="button" class="btn btn-primary  taskbutton left">Edit</button></a>
 
+    <button type="button" class="btn btn-primary taskbutton right" data-toggle="modal" data-target="#myModal">Delete</button>
+  </div>
 
-
-      <!-- select email to invite them to task -->
-      <!-- <p>Input User's Email to Invite Them to Task</p> -->
-      <%= form_tag task_path, :method => "get" do %>
-        <%= label_tag :"Input User's Email and Invite Them to Task" %>
-        <%= text_field :recipients, params[:recipients], class: "recipientInput form-control" %>
-        <div class="recipientInputMsg" style="color:red"></div><br>
-        <%= submit_tag :"invite people", class: "btn btn-default" %>
-      <% end %>
- 
-      
-      <%= content_tag :div, class: "users_class", data: {users: @users} do %>
-      <% end %>
-
-  <!-- modal for delete task-->
+  <!-- modal for delete confrimation -->
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -44,11 +51,23 @@
           <p>Location:<strong class="task"><%= @task.location%></strong></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"><%= link_to 'Cancel', current_user %></button>
-          <button type="button" class="btn btn-default" data-dismiss="modal"><%= link_to 'Delete', task_path,method: :delete %></button>
+          <button type="button" class="btn btn-default modalbutton left" data-dismiss="modal"><%= link_to 'Cancel', current_user %></button>
+          <button type="button" class="btn btn-default modalbutton right" data-dismiss="modal"><%= link_to 'Delete', task_path,method: :delete %></button>
         </div>
       </div>
     </div>
-      <p>Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
   </div>
 
+</div>
+  <!-- select email to invite them to task -->
+  <!-- <p>Input User's Email to Invite Them to Task</p> -->
+  <%= form_tag task_path, :method => "get" do %>
+    <%= label_tag :"Input User's Email and Invite Them to Task" %>
+    <%= text_field :recipients, params[:recipients], class: "recipientInput form-control" %>
+    <div class="recipientInputMsg" style="color:red"></div><br>
+    <%= submit_tag :"invite people", class: "btn btn-default" %>
+  <% end %>
+
+  
+  <%= content_tag :div, class: "users_class", data: {users: @users} do %>
+  <% end %>

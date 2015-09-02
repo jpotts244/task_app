@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
 	def show
 		@user = current_user
 		@message = Message.find(params[:id])
-		@sender = Message.find(params[:id]).sender_id
+		@sender = @message.sender_id
 	end
 
 	def destroy

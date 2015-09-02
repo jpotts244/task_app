@@ -1,6 +1,7 @@
 // this is file for customizing JS
 
 // console.log("linked")
+
 $(function(){
 	var users = $(".users_class").attr("data-users");
 
