@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
 
+	before_action :authenticate
+
 	def index
 		@user = current_user
 		@messages = @user.messages
