@@ -8,8 +8,15 @@
 
 User.delete_all
 Task.delete_all
+Tasking.delete_all
 Message.delete_all
 Messaging.delete_all
+
+msgcontent = "<p>Thanks for taking to time to sign up with us!</p>"+
+	"<p>Here at TaskApp we strive to help our users organize their personal calendars and their lives!</p>"+
+	"<p>Congrats on becoming a member of the TaskApp community!</p>"+
+	"<h4>Cheers!</h4>"+
+	"<p>The TaskApp Team</p>"
 
 a = User.create({name:"Reyes",email:"reyes@test.com",password:"reyes"})
 b = User.create({name:"Xi",email:"xi@test.com",password:"xi"})
@@ -24,9 +31,8 @@ Tasking.create(user:a,task:e)
 Tasking.create(user:a,task:f)
 Tasking.create(user:b,task:f)
 
-
-g = Message.create({title:"hi",content:"how are you",attachment:"no attach",sender_id: 3})
-h = Message.create({title:"Welcome to task manager",content:"Hi, feel free to explore the website.",attachment:"no attach"})
+g = Message.create({title:"Welcome to task manager",content: msgcontent})
+h = Message.create({title:"hi",content:"how are you",attachment:"no attach",sender_id: 3})
 
 Messaging.create(user:a,message:g);
 Messaging.create(user:a,message:h);
