@@ -1,0 +1,202 @@
+/*custom css styles*/
+
+body {
+  padding-top: 70px;
+  margin: 0 10%;
+}
+
+.taskDisplay {
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.temp{
+  color: #296ACC;
+  font-size: 1em;
+}
+.weather{
+  font-size: 1.5em;
+}
+td{
+  padding: 10px;
+}
+.justify{
+  text-align: justify;
+}
+.wtext, .location{
+  margin: 10px 0;
+  color: #666666;
+  text-align: center;
+  vertical-align: middle;
+}
+.content{
+  padding: 2% 2%;
+}
+
+
+h1,h2{
+  font-family: 'Lobster Two', cursive;
+  text-align: center;
+  color: #666666;
+}
+p{
+  font-family: 'Lobster Two', cursive;
+}
+
+.task{
+  font-size: 1em;
+  color: #296ACC;
+  padding-left: 2%; 
+}
+.tasktitle{
+  text-align: center;
+}
+
+.col-md-2{
+  padding-left: 0;
+}
+.btn{
+  padding: 0;
+}
+#map-wrapper{
+  width: auto;
+  vertical-align: center;
+}
+.btn-primary{
+  width: auto;
+  padding: 5px;
+}
+
+/* new style*/
+.right{
+  float: right;
+  margin: 10px;
+}
+.left{
+  float: left;
+  margin: 10px;
+}
+.taskshow{
+  vertical-align: center;
+}
+.taskbutton, .modalbutton{
+  color: white;
+  width: 100px;
+  padding: 5px;
+  text-decoration: none;
+  text-transform: bold;
+}
+
+#listDisplay{
+  width: auto;
+  height: 450px;
+  overflow: scroll;
+}
+
+.taskDisplay{
+  margin: 10px;
+
+}
+#imgattached{
+
+  margin: 5% 20%;
+}
+
+.hidetext{
+  color: white;
+  vertical-align: center;
+  text-align: center;
+}
+footer{
+  text-align: center;
+  padding-top: 50px;
+  bottom: 0;
+  left: 0;
+  position: relative;
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+
+}
+
+/*******************************
+welcome users#index page styling
+********************************/
+@media screen and (max-width: 480px) {
+ font-family: 'Khula', sans-serif;
+  margin-top: 1%;
+  font-weight: 800px;
+  font-size: 20px;
+
+}
+
+.background {
+  height: 720px;
+  background-image: url(welcome_image_2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.info-welcome {
+    font-family: 'Khula', sans-serif;
+    font-weight: 600px;
+    font-size: 3.9vmax;
+    left:16%;
+    top: 140px;
+    color:white;
+}
+.welcome {
+  font-family: 'Khula', sans-serif;
+  margin-top: 1%;
+  font-weight: 800px;
+  font-size: 5.9vw;
+  color:white;
+}
+
+.info {
+  margin-top: 1px;
+}
+
+
+.welcome-button {
+    position: relative;
+    padding-top: 10%;
+    top: 201px;
+    left: 37%;
+    right: -420px;
+    bottom: -191px;
+    padding: 10px 44px;
+    border: 0 none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 2em;
+    background:white;
+    color:grey;
+    opacity:0.8;
+    border: none;
+  
+}
+ 
+
+.btn-primary:hover  {
+
+  background-color: black;
+}
+
+.hidden {
+  visibility: hidden;
+}
