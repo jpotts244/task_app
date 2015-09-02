@@ -44,6 +44,7 @@ class TasksController < ApplicationController
 # GET /tasks/:id - show task
   def show
     @task = Task.find(params[:id]) 
+    @taskUsers = @task.users
 
     # weather API
     city = @task.location
