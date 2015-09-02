@@ -52,12 +52,11 @@ $(function(){
 	});
 
 	// hide footer on users and login pages
-	if(window.location.pathname === "/users"){
+	if( window.location.pathname === "/users" || 
+		window.location.pathname === "/login" || 
+		window.location.pathname === "/"){
 		$("div .footer").hide();
 	}
-	if(window.location.pathname === "/login"){
-		$("div .footer").hide();
-	}	
 
 });
 
