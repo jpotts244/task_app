@@ -5,6 +5,12 @@
 body{
   margin: 0 10%;
 }
+.navbar-style{
+  background-color: #290029;
+  border:none;
+  font-weight: 700px;
+  color: #FFFFFF;
+}
 .temp{
   color: #296ACC;
   font-size: 1em;
@@ -89,8 +95,9 @@ p{
 }
 #listDisplay{
   width: auto;
-  height: 650px;
+  height: 400px;
   overflow: scroll;
+  border: none;
 }
 
 .taskDisplay{
@@ -116,26 +123,10 @@ footer{
 /*******************************
 welcome users#index page styling
 ********************************/
-@media screen and (max-width: 480px) {
- font-family: 'Khula', sans-serif;
-  margin-top: 1%;
-  font-weight: 800px;
-  font-size: 20px;
-
-}
-
-.background {
-  height: 720px;
-  background-image: url(welcome_image_2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  
-}
-
-.info-welcome {
+@media screen and (min-width: 480px) {
+ .info-welcome {
     font-family: 'Khula', sans-serif;
     font-weight: 600px;
-    font-size: 3.9vmax;
     left:16%;
     top: 140px;
     color:white;
@@ -150,21 +141,53 @@ welcome users#index page styling
 
 .info {
   margin-top: 1px;
+  font-size: 3.9vmax;
+}
+
+}
+
+.background {
+  height: 720px;
+  background-image: url(welcome_image_2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.info-welcome {
+    font-family: 'Khula', sans-serif;
+    font-weight: 600px;
+    left:8%;
+    top: 190px;
+    color:white;
+}
+.welcome {
+  font-family: 'Khula', sans-serif;
+  text-align: center;
+  margin-top: 1%;
+  font-weight: 800px;
+  font-size: 5.9vw;
+  color:white;
+}
+
+.info {
+  font-size: 3vmax;
+  text-align: center;
+  left: 10%;
+ 
 }
 
 
 .welcome-button {
     position: relative;
-    padding-top: 10%;
-    top: 201px;
+    text-align: center;
+    top: 198px;
     left: 37%;
-    right: -420px;
-    bottom: -191px;
     padding: 10px 44px;
     border: 0 none;
     font-weight: 600;
     letter-spacing: 1px;
-    font-size: 2em;
+    font-size: 3.9vw;
     background:white;
     color:grey;
     opacity:0.8;
@@ -181,7 +204,9 @@ welcome users#index page styling
 .hidden {
   visibility: hidden;
 }
-
+.visible{
+float: right;
+}
 
 
 

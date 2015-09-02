@@ -21,11 +21,10 @@ $(document).ready(function(){
 	if(window.location.pathname === "/login"){
 		$("div .footer").hide();
 	}
-	if(window.location.pathname === "/new"){
-		$("div .footer").hide();
-	}
+
 
 })
+
 
 // $(document).ready(function(){
 
