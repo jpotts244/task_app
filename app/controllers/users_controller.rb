@@ -32,6 +32,7 @@ class UsersController < ApplicationController
  			@tasks = @user.tasks.where("lower(#{params[:search_by]}) LIKE lower(?)", "%#{params[:search].downcase}%")
 		end
 	else
+		
 		redirect_to users_path
 	end
   end
