@@ -1,16 +1,25 @@
-/*@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
-@import url(https://fonts.googleapis.com/css?family=Lobster+Two);*/
-@import url(https://fonts.googleapis.com/css?family=Khula:800,600,700);
+/*custom css styles*/
 
-body{
+body {
+  padding-top: 70px;
   margin: 0 10%;
 }
+
 .navbar-style{
   background-color: #290029;
   border:none;
   font-weight: 700px;
   color: #FFFFFF;
 }
+
+
+.taskDisplay {
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
 .temp{
   color: #296ACC;
   font-size: 1em;
@@ -21,21 +30,18 @@ body{
 td{
   padding: 10px;
 }
-
-.wtext{
+.justify{
+  text-align: justify;
+}
+.wtext, .location{
   margin: 10px 0;
-  color: #296ACC;
+  color: #666666;
   text-align: center;
   vertical-align: middle;
 }
 .content{
   padding: 2% 2%;
 }
-
-/*.taskDisplay{
-  background-color: rgba(255, 255, 255, 0.8);
-}*/
-/*h1,h2{
 
 
 h1,h2{
@@ -45,9 +51,6 @@ h1,h2{
 }
 p{
   font-family: 'Lobster Two', cursive;
-  /*font-family: 'Shadows Into Light', cursive;*/
-/*  font-size: 1.3em;
-  color: #666666;*/
 }
 
 .task{
@@ -93,8 +96,10 @@ p{
   text-decoration: none;
   text-transform: bold;
 }
+
 #listDisplay{
   width: auto;
+
   height: 400px;
   overflow: scroll;
   border: none;
@@ -109,6 +114,11 @@ p{
   margin: 5% 20%;
 }
 
+.hidetext{
+  color: white;
+  vertical-align: center;
+  text-align: center;
+}
 footer{
   text-align: center;
   padding-top: 50px;
@@ -117,6 +127,18 @@ footer{
   position: relative;
 }
 
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
 
 }
 
@@ -200,16 +222,4 @@ welcome users#index page styling
 
   background-color: black;
 }
-
-.hidden {
-  visibility: hidden;
-}
-.visible{
-float: right;
-}
-
-
-
-
-
 
