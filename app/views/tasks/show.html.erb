@@ -16,7 +16,7 @@
           <% if @task.image_file_name == nil %>
                <p></p>
           <% else %>
-              <p id="imgattached"><%= image_tag @task.image.url(:medium)%></p>
+              <p id="imgattached" class=".hidden-phone"><%= image_tag @task.image.url(:medium)%></p>
           <% end %>
     </div>
     <div class="col-xs-2 col-sm-6">

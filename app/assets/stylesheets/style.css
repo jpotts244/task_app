@@ -5,7 +5,6 @@
 body{
   margin: 0 10%;
 
-}
 .temp{
   color: #296ACC;
   font-size: 1em;
@@ -100,10 +99,6 @@ p{
   margin: 10px;
 
 }
-#imgattached{
-
-  margin: 5% 20%;
-}
 
 .hidetext{
   color: white;
@@ -121,6 +116,10 @@ footer{
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) {
+#imgattached{
+  max-width: 150px;
+  max-height: 150px;
+}
  }
 
 /* Medium devices (desktops, 992px and up) */
