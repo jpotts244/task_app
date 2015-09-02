@@ -4,10 +4,12 @@
 $(function(){
 	var users = $(".users_class").attr("data-users");
 
-	$("#recipientInput").on("change",function(event){
+	$(".recipientInput").on("change",function(event){
 		var input = $(this).val();
 		var inputUniq = [];
 		var message = [];
+		console.log(input);
+		
 		input = input.trim().toLowerCase().split(",");
 		input = input.map(function(i){
 			return i.trim();
@@ -25,9 +27,9 @@ $(function(){
 		inputUniq = inputUniq.join(",");
 		$(this).val(inputUniq);
 		if(message.length >0 ){
-			$("#recipientInputMsg").text("users: "+message.join(",")+" doesn't exists.");
+			$(".recipientInputMsg").text("users: "+message.join(",")+" doesn't exists.");
 		}else{
-			$("#recipientInputMsg").text("");
+			$(".recipientInputMsg").text("");
 		}
 		
 

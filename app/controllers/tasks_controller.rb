@@ -44,32 +44,46 @@ class TasksController < ApplicationController
 # GET /tasks/:id - show task
   def show
     @task = Task.find(params[:id]) 
-city = @task.location
-city.gsub(" ", "%20")
-# response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
+    city = @task.location
+    city.gsub(" ", "%20")
+    # response = HTTParty.get("http://api.wunderground.com/api/4a9cdbbd8fedfdc6/conditions/q/NY/#{city}.json")
 
-# @weather_feel = response["current_observation"]["feelslike_f"]
+    # @weather_feel = response["current_observation"]["feelslike_f"]
 
-# @weather_condition = response["current_observation"]["weather"]   
+    # @weather_condition = response["current_observation"]["weather"]   
 
-response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
-  headers:{
-    "X-Mashape-Key" => ENV["WEATHER_KEY"],
-    "Accept" => "application/json"
-  })
+    response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
+      headers:{
+        "X-Mashape-Key" => ENV["WEATHER_KEY"],
+        "Accept" => "application/json"
+    })
   
-  @weather_day = response[1]["day_of_week"]
-  @weather_condition = response[0]["condition"]
-  @weather_feel = response[2]["high"]
-end
+    @weather_day = response[1]["day_of_week"]
+    @weather_condition = response[0]["condition"]
+    @weather_feel = response[2]["high"]
 
-def search 
+    @users = User.all
+    # send out inviation is params[:recipients] exists
+    if params[:recipients]
+        @recipients = params[:recipients][0].split(",")
+        title = "Invitation to join task: "+@task.title
+        content = "<p>"+current_user.name+" invites you to join a task, do you accept?<p>"+
+                "<a href='/acceptinvite/"+@task.id.to_s+" class='btn btn-success'>Accept</a><br>"  
+        @newMessage = Message.create({title: title, content: content, sender_id: current_user.id})
+        @recipients.each do |recipient|
+          Messaging.create({user:User.find_by_email(recipient),message:@newMessage})
+        end
+        flash[:success] = "Invitation sent."
 
-end
+        redirect_to current_user
+    end   
+  end
 
-
-
-
+  def acceptinvite
+    Tasking.create({user:current_user,task:Task.find(params[:id])})
+    flash[:success] = "Task has been added to your task list."
+    redirect_to current_user
+  end
 
 # GET /tasks/:id/edit
   def edit

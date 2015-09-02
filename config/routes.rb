@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :messages 
   resources :tasks
 
+  get '/acceptinvite/:id' => "tasks#acceptinvite"
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"
   delete '/logout' => "sessions#destroy"

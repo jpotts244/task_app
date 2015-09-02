@@ -7,7 +7,7 @@
 		<ul>
 			<% @messages.each do |message| %>
 			<li>
-				<a href='/messages/<%= message.id%>'><%=  message.content %></a>
+				<a href='/messages/<%= message.id%>'><%=  message.title %></a>
 			
 			</li><br>
 			<% end %>

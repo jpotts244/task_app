@@ -12,6 +12,23 @@
       <hr><button type="button" class="btn btn-info btn-lg cancel"><%= link_to 'Edit task', edit_task_path, class:"alignleft" %></button>
 
       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Delete</button>
+
+
+
+      <!-- select email to invite them to task -->
+      <!-- <p>Input User's Email to Invite Them to Task</p> -->
+      <%= form_tag task_path, :method => "get" do %>
+        <%= label_tag :"Input User's Email and Invite Them to Task" %>
+        <%= text_field :recipients, params[:recipients], class: "recipientInput form-control" %>
+        <div class="recipientInputMsg" style="color:red"></div><br>
+        <%= submit_tag :"invite people", class: "btn btn-default" %>
+      <% end %>
+ 
+      
+      <%= content_tag :div, class: "users_class", data: {users: @users} do %>
+      <% end %>
+
+  <!-- modal for delete task-->
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -34,6 +51,4 @@
     </div>
       <p>Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
   </div>
-
-
 

@@ -9,6 +9,7 @@
 User.delete_all
 Task.delete_all
 Message.delete_all
+Messaging.delete_all
 
 a = User.create({name:"Reyes",email:"reyes@test.com",password:"reyes"})
 b = User.create({name:"Xi",email:"xi@test.com",password:"xi"})
@@ -24,8 +25,8 @@ Tasking.create(user:a,task:f)
 Tasking.create(user:b,task:f)
 
 
-g = Message.create({content:"hi",attachment:"no attach"})
-h = Message.create({content:"Welcome to task manager",attachment:"no attach"})
+g = Message.create({title:"hi",content:"how are you",attachment:"no attach",sender_id: 3})
+h = Message.create({title:"Welcome to task manager",content:"Hi, feel free to explore the website.",attachment:"no attach"})
 
 Messaging.create(user:a,message:g);
 Messaging.create(user:a,message:h);
