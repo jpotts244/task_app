@@ -95,3 +95,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 === Resources
 
+Footer
+http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
+Stycky  footer - script.js
+http://foundation.zurb.com/forum/posts/629-sticky-footer
