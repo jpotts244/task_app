@@ -2,7 +2,26 @@
 
 // console.log("linked")
 
-$(function(){
+
+$(document).ready(function(){
+  
+	$('#delete-modal').on('click', function(){
+	  console.log('im in')
+	  $('#modal').toggle();   // toggle targeting the display none in display with the assigned value
+	})
+	$('#close').on('click', function(){
+	  $('#modal').toggle();
+	})
+
+	$('.statusddl').val(2)
+
+//hide footer git hub//
+	if(window.location.pathname === "/users"){
+		$("div .footer").hide();
+	}
+	if(window.location.pathname === "/login"){
+		$("div .footer").hide();
+	}
 
 	// handle email input validation
 	var users = $(".users_class").attr("data-users");
@@ -58,6 +77,7 @@ $(function(){
 		$("div .footer").hide();
 	}
 
+
 });
 
 
@@ -80,6 +100,7 @@ $(function(){
 // 	}
 
 // })
+
 
 // $(document).ready(function(){
 
