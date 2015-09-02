@@ -1,17 +1,22 @@
 /*custom css styles*/
+@import url(https://fonts.googleapis.com/css?family=Courgette);
+
 
 body {
   padding-top: 70px;
   margin: 0 10%;
+  font-family: 'Courgette', cursive;
+  color: #666666;
 }
-
-.navbar-style{
-  background-color: #290029;
-  border:none;
-  font-weight: 700px;
-  color: #FFFFFF;
+h4{
+  font-size: 1.6em;
 }
-
+h5{
+  font-size: 1.4em;
+}
+h6{
+  font-size: 1em;
+}
 
 .taskDisplay {
   border: 1px solid rgba(0,0,0,0.3);
@@ -19,7 +24,9 @@ body {
   margin: 10px 0px;
   padding: 10px;
 }
-
+.btn{
+  font-size: 1.3em;
+}
 .temp{
   color: #296ACC;
   font-size: 1em;
@@ -32,6 +39,7 @@ td{
 }
 .justify{
   text-align: justify;
+  text-transform: none;
 }
 .wtext, .location{
   margin: 10px 0;
@@ -45,25 +53,16 @@ td{
 }
 
 
-
-/*.taskDisplay{
-  background-color: rgba(255, 255, 255, 0.8);
-}*/
-/*h1,h2{
-
-
-
 h1,h2{
-  font-family: 'Lobster Two', cursive;
   text-align: center;
   color: #666666;
 }
 p{
-  font-family: 'Lobster Two', cursive;
+  font-size: 1.4em;
 }
 
 .task{
-  font-size: 1em;
+  font-size: 1.2em;
   color: #296ACC;
   padding-left: 2%; 
 }
@@ -81,10 +80,10 @@ p{
   width: auto;
   vertical-align: center;
 }
-.btn-primary{
+/*.btn-primary{
   width: auto;
   padding: 5px;
-}
+}*/
 
 /* new style*/
 .right{
@@ -98,7 +97,7 @@ p{
 .taskshow{
   vertical-align: center;
 }
-.taskbutton, .modalbutton{
+.taskbutton, .modalbutton, .btn-primary{
   color: white;
   width: 100px;
   padding: 5px;
@@ -117,10 +116,6 @@ p{
 .taskDisplay{
   margin: 10px;
 
-}
-#imgattached{
-
-  margin: 5% 20%;
 }
 
 .hidetext{
@@ -145,7 +140,6 @@ footer{
     font-weight: 700px;
     color: #FFFFFF;
 }
-
 
 
 /*******************************
@@ -232,6 +226,7 @@ welcome users#index page styling
     opacity:0.8;
     border: none;
     width: auto;
+    font-family: 'Khula', sans-serif;
   
 }
  
