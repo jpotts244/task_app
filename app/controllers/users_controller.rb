@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 			session[:user_id] = @user.id
 			flash[:success] = "Welcome to Task Manager!"
 			MyMailer.welcome_email(@user).deliver_now
+			Messaging.create(user_id: @user.id, message_id: Message.first.id);
   			redirect_to @user
 		else	
 			render 'new'
