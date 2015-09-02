@@ -194,7 +194,7 @@ welcome users#index page styling
   text-align: center;
   margin-top: 1%;
   font-weight: 800px;
-  font-size: 5.9vw;
+  font-size: 3.9vw;
   color:white;
 }
 
@@ -208,31 +208,30 @@ welcome users#index page styling
 
 .welcome-button {
     position: relative;
-<<<<<<< HEAD:app/assets/stylesheets/style.css
     text-align: center;
     top: 198px;
     left: 37%;
     padding: 10px 44px;
     border: 0 none;
     font-weight: 600;
-=======
+
     padding: 1% 5%;
-    margin-top: 10%;
-/*    top: 201px;*/
-    left: 42%;
-/*    right: -420px;*/
+    margin-top: 1%;
+    top: 201px;
+    left: 39%;
+    right: -420px;
     bottom: -191px;
-    text-transform: capitalize;
-    /*padding: 10px 44px;*/
-    /*border: 0 none;*/
+  
+    padding: 10px 44px;
+    border: 0 none;
     font-weight: bold;
->>>>>>> c00ac6087ad476364a8f215b51ab60f433689978:app/assets/stylesheets/style.css.scss
     letter-spacing: 1px;
     font-size: 3.9vw;
     background:white;
     color:grey;
     opacity:0.8;
     border: none;
+    width: auto;
   
 }
  
@@ -242,11 +241,10 @@ welcome users#index page styling
   background-color: black;
 }
 
-<<<<<<< HEAD:app/assets/stylesheets/style.css
-=======
+
 .hidden {
   visibility: hidden;
 
 }
 
->>>>>>> c00ac6087ad476364a8f215b51ab60f433689978:app/assets/stylesheets/style.css.scss
+
