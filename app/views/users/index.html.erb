@@ -1,6 +1,6 @@
 
 <meta name="viewport" content="initial-scale=1">
-<body class="container background">
+<body class="background">
 
 
 <!-- <button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary btn-large button" autocomplete="off">
@@ -9,15 +9,43 @@
 <div class="row">
   <div class="col-xs-10 col-md-10 info-welcome">
   	<h1 class="welcome">WELCOME TO TASKIT</h1>
-		<h3 class="col-xs-8 col-md-8 info">Making things .</h3>
+		<h5 class=".col-xs-10 .col-md-10 info">Making things easier for you.</h5>
+
 
  </div>
-</div>
 
-<div class="row">
-  <div class="col-xs-12 col-md-12">
+  <div class=".col-xs-6 .col-md-6 .col-md-offset-3">
 <a class="btn btn-primary btn-lg welcome-button" href="/login" role="button">Enter</a>
 </div>
+</div>
+
+<script>
+
+$(function(){
+		var body = $('.background')
+		var backgrounds = [
+			'url(welcome_image_2.jpg)',
+			'url(welcome_image_3.jpg)'
+		];
+
+		var current = 0;
+
+		function slideShow(){
+			body.css('.background', backgrounds[current = ++current % backgrounds.length]);
+
+			setTimeout(slideShow, 5000);
+		}
+		setTimeout(slideShow, 5000);
+		body.css('.background', backgrounds[0]);
+		}
+		console.log(slideShow)
+	});
+
+
+
+
+
+</script>
 
 
 
