@@ -19,6 +19,9 @@ d = User.create({name:"Viki",email:"viki@test.com",password:"viki"})
 
 e = Task.create({title:"task1",content:"it's a task",duedate:"today",location:"nyc"})
 f = Task.create({title:"task2",content:"it's another task",duedate:"tomorrow",location:"brooklyn"})
+taskone = Task.create({title:"Go Food",content:"it's another task",duedate:"tomorrow",location:"brooklyn"})
+
+
 
 Tasking.create(user:a,task:e)
 Tasking.create(user:a,task:f)
@@ -27,6 +30,7 @@ Tasking.create(user:b,task:f)
 
 g = Message.create({title:"hi",content:"how are you",attachment:"no attach",sender_id: 3})
 h = Message.create({title:"Welcome to task manager",content:"Hi, feel free to explore the website.",attachment:"no attach"})
+
 
 Messaging.create(user:a,message:g);
 Messaging.create(user:a,message:h);
