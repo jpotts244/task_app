@@ -51,8 +51,7 @@ td{
   padding: 2% 2%;
 }
 
-<<<<<<< HEAD:app/assets/stylesheets/style.css
-=======
+
 
 
 /*.taskDisplay{
@@ -61,8 +60,6 @@ td{
 /*h1,h2{
 
 
-
->>>>>>> c00ac6087ad476364a8f215b51ab60f433689978:app/assets/stylesheets/style.css.scss
 h1,h2{
   text-align: center;
   color: #666666;
@@ -150,27 +147,6 @@ footer{
 }
 
 
-<<<<<<< HEAD:app/assets/stylesheets/style.css
-/* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) {
-#imgattached{
-  max-width: 150px;
-  max-height: 150px;
-}
- }
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) {
-
- }
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {
-
-}
-=======
->>>>>>> c00ac6087ad476364a8f215b51ab60f433689978:app/assets/stylesheets/style.css.scss
-
 /*******************************
 welcome users#index page styling
 ********************************/
@@ -229,6 +205,7 @@ welcome users#index page styling
     color:grey;
     opacity:0.8;
     border: none;
+    width: auto;
   
 }
  
