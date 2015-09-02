@@ -39,9 +39,18 @@ td{
   text-align: center;
   vertical-align: middle;
 }
+
 .content{
   padding: 2% 2%;
 }
+
+
+
+/*.taskDisplay{
+  background-color: rgba(255, 255, 255, 0.8);
+}*/
+/*h1,h2{
+
 
 
 h1,h2{
@@ -126,21 +135,18 @@ footer{
   left: 0;
   position: relative;
 }
-
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) {
- }
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) {
-
- }
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {
-
+/******navbar*******/
+.navbar-header{
+  float: none;
+} 
+.navbar-style{
+   background-color: #290029;
+   border:none;
+    font-weight: 700px;
+    color: #FFFFFF;
 }
+
+
 
 /*******************************
 welcome users#index page styling
@@ -202,12 +208,25 @@ welcome users#index page styling
 
 .welcome-button {
     position: relative;
+<<<<<<< HEAD:app/assets/stylesheets/style.css
     text-align: center;
     top: 198px;
     left: 37%;
     padding: 10px 44px;
     border: 0 none;
     font-weight: 600;
+=======
+    padding: 1% 5%;
+    margin-top: 10%;
+/*    top: 201px;*/
+    left: 42%;
+/*    right: -420px;*/
+    bottom: -191px;
+    text-transform: capitalize;
+    /*padding: 10px 44px;*/
+    /*border: 0 none;*/
+    font-weight: bold;
+>>>>>>> c00ac6087ad476364a8f215b51ab60f433689978:app/assets/stylesheets/style.css.scss
     letter-spacing: 1px;
     font-size: 3.9vw;
     background:white;
@@ -223,3 +242,11 @@ welcome users#index page styling
   background-color: black;
 }
 
+<<<<<<< HEAD:app/assets/stylesheets/style.css
+=======
+.hidden {
+  visibility: hidden;
+
+}
+
+>>>>>>> c00ac6087ad476364a8f215b51ab60f433689978:app/assets/stylesheets/style.css.scss

@@ -23,9 +23,6 @@ $(document).ready(function(){
 		$("div .footer").hide();
 	}
 
-
-$(function(){
-
 	// handle email input validation
 	var users = $(".users_class").attr("data-users");
 
