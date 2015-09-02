@@ -32,7 +32,7 @@ Tasking.create(user:a,task:f)
 Tasking.create(user:b,task:f)
 
 g = Message.create({title:"Welcome to task manager",content: msgcontent})
-h = Message.create({title:"Hello,",content:"how are you",attachment:"no attach",sender_id: 3})
+h = Message.create({title:"Hello,",content:"how are you",attachment:"no attach",sender_id: c.id})
 m1 = Message.create({title:"Hi",content:"I hope you are well. I just shared the below task with you, If you have any further question, please let me know.",attachment:"no attach",sender_id: d.id})
 m2 = Message.create({title:"Good Morning",content:"How are you? Can we talk later on to discuss how we are going to organize this. Many thanks.",attachment:"no attach",sender_id: d.id})
 m3 = Message.create({title:"Ahoj",content:"Can you make sure this task is completed on time?",attachment:"no attach",sender_id: a.id})
