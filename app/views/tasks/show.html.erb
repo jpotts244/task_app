@@ -1,37 +1,43 @@
 <div class="row taskshow" > 
 
   <div class="col-sm-12">
-    <h2><%=@task.title%></h2>
-
-    <table class="table">
+    <h2><%=@task.title%></h2><hr>
+    <div class="row">
+   <!--  <table class="table">
       <tr>
         <td class="weather wtext" valign="middle" style="width: 200px;"><strong class="task"><%= @task.location%></strong></td>
         <td class="weather" style="width: 100px;"><img src="<%= @weather_img%>" align="middle"></td>
         <td class="weather wtext" valign="middle" style="width: 200px;"><%= @weather_feel%>&#8457</td>
       </tr>
-    </table><hr>
-  <div class="col-xs-7 .col-sm-6">
+    </table><hr> -->
+    <div class="col-xs-8 col-sm-6">
+      <p>Due date: <strong class="task"><%= @task.duedate%></strong></p>
+      <p>Content: <strong class="task"><%= @task.content%></strong></p>
+          <% if @task.image_file_name == nil %>
+               <p></p>
+          <% else %>
+              <p id="imgattached"><%= image_tag @task.image.url(:medium)%></p>
+          <% end %>
+    </div>
+    <div class="col-xs-2 col-sm-6">
+      <p class="location"><strong><em class="task"><%= @task.location%></em></stong></p>
+      <p class="hidetext">.<img src="<%= @weather_img%>"  valign="middle" class="wtext">
+      <em class="temp"><%= @weather_feel%> &#8457</em></p>
+      <p class="justify">Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
+    </div>
+    <div class="col-xs-2 col-sm-6">
+      <p class="location"><strong><em class="task"><%= @task.location%></em></stong></p>
+      <p class="hidetext">.<img src="<%= @weather_img%>"  valign="middle" class="wtext">
+      <em class="temp"><%= @weather_feel%> &#8457</em></p>
+      <p class="justify">Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
+    </div>
+  </div>
     
-    <p>Due date: <strong class="task"><%= @task.duedate%></strong></p>
-    <p>Content: <strong class="task"><%= @task.content%></strong></p>
-    <p>Location:<strong class="task"><%= @task.location%></strong></p>
-        <% if @task.image_file_name == nil %>
-             <p></p>
-        <% else %>
-            <p id="imgattached"><%= image_tag @task.image.url(:medium)%></p>
-        <% end %>
-    </div><br>
-    <div class=".col-xs-5 .col-sm-6">
-  <!--   <p><img src="<%= @weather_img%>"></p>
-    <p class="temp"><%= @weather_feel%></p> -->
-      <p>Today in <%= @task.location%>, weather feels like <%= @weather_feel %> degrees, and it's <%= @weather_condition %></p>
-    </div><br>
-    
-    </div><hr>
     <div class="col-sm-12"><hr>
       <a href='/tasks/<%= @task.id%>/edit'><button type="button" class="btn btn-primary  taskbutton left">Edit</button></a>
 
       <button type="button" class="btn btn-primary taskbutton right" data-toggle="modal" data-target="#myModal">Delete</button>
+    </div>
     </div>
 <!--   </div>
     <div class=".col-md-6 left">
@@ -59,6 +65,7 @@
         </div>
       </div>
     </div>
+</div>
 </div>
 
 
