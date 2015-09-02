@@ -16,7 +16,7 @@
     	<% if logged_in? %>
     		<span class="navbar-brand hidden-sm hidden-xs">Welcome, <%= current_user.name %></span>
 
-    		<span class="navbar-brand glyphicon glyphicon-log-out" style="margin-right:-20px" ></span>
+    		<span class="navbar-brand glyphicon glyphicon-log-out" style="margin-right:-13px" ></span>
     		<%= link_to "logout", logout_path, method: :delete, class: "navbar-brand" %>
 
     	<% else %>
