@@ -1,7 +1,7 @@
 class Message < ActiveRecord::Base
-	belongs_to :user
+	has_many :messagings
+	has_many :users, through: :messagings
 
-	validates :content, presence: true,
-		uniqueness: { case_sensitive: false }
-
+	validates :title, presence: true
+	validates :content, presence: true
 end
