@@ -25,12 +25,16 @@ class UsersController < ApplicationController
 	  	@user = User.find(params[:id])
 	  	@tasks = @user.tasks
 	  	@messages = @user.messages
+
+	  	if params[:search]
+	  		# filter
+	  		
+ 			@tasks = @user.tasks.where("lower(#{params[:search_by]}) LIKE lower(?)", "%#{params[:search].downcase}%")
+		end
 	else
 		redirect_to users_path
 	end
   end
-
-  
 
 private
 

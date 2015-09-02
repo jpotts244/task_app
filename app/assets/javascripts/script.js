@@ -3,11 +3,14 @@
 // console.log("linked")
 $(document).ready(function(){
   
-$('#delete-modal').on('click', function(){
-  console.log('im in')
-  $('#modal').toggle();   // toggle targeting the display none in display with the assigned value
-})
-$('#close').on('click', function(){
-  $('#modal').toggle();
-})
+	$('#delete-modal').on('click', function(){
+	  console.log('im in')
+	  $('#modal').toggle();   // toggle targeting the display none in display with the assigned value
+	})
+	$('#close').on('click', function(){
+	  $('#modal').toggle();
+	})
+
+	$('.statusddl').val(2)
+
 })
