@@ -7,19 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="content">
-	<%= render "/layouts/navbar" %>
+  <div id='wrapper' class='container-fluid'>
+  	<%= render "/layouts/navbar" %>
 
-<!-- 
-  <h1><%= link_to "logout", logout_path, method: :delete %></h1><br> -->
+  <!-- 
+    <h1><%= link_to "logout", logout_path, method: :delete %></h1><br> -->
 
-	<div class="container-fluid">
-		<% flash.each do |message_type, message| %>
-	    	<div class="alert alert-<%= message_type %>"><%= message %></div>
-		<% end %>
-		<%= yield %>
-	</div>
-  </div>	
-  
+  	<div class="container-fluid">
+  		<% flash.each do |message_type, message| %>
+  	    	<div class="alert alert-<%= message_type %>"><%= message %></div>
+  		<% end %>
+  		<%= yield %>
+  	</div>
+
+  </div>
+
 </body>
 </html>
