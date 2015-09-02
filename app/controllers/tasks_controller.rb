@@ -80,8 +80,12 @@ class TasksController < ApplicationController
   end
 
   def acceptinvite
-    Tasking.create({user:current_user,task:Task.find(params[:id])})
-    flash[:success] = "Task has been added to your task list."
+    if Tasking.find_by_user_id_and_task_id(current_user.id,params[:id])
+      flash[:info] = "You have joined the task already"
+    else
+      Tasking.create({user:current_user,task:Task.find(params[:id])})
+      flash[:success] = "Task has been added to your task list."      
+    end
     redirect_to current_user
   end
 
@@ -102,7 +106,14 @@ class TasksController < ApplicationController
   def destroy
     # double confirmetion for the delete
     task = Task.find(params[:id])
+    @taskings = task.taskings
+    @taskings.each do |tasking|
+      tasking.destroy
+    end
     task.destroy
+
+    flash[:info] = "Task has been deleted"
+
     redirect_to current_user
   end
 
