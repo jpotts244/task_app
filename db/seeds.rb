@@ -36,17 +36,17 @@ taskseven = Task.create({title:"Get Packages",content:"Need to pick up packages 
 taskeight = Task.create({title:"Meet Sammy",content:"Meeting Sammy for dinner tonight at 9PM",duedate:"today",location:"New York City, NY"})
 
 
-Tasking.create(user:a,task:e)
-Tasking.create(user:a,task:f)
-Tasking.create(user:b,task:f)
-Tasking.create(user:b,task:taskone)
-Tasking.create(user:b,task:tasktwo)
-Tasking.create(user:a,task:taskthree)
-Tasking.create(user:b,task:taskfour)
-Tasking.create(user:a,task:taskfive)
-Tasking.create(user:b,task:tasksix)
-Tasking.create(user:b,task:taskseven)
-Tasking.create(user:a,task:taskeight)
+Tasking.create({user:a,task:e})
+Tasking.create({user:a,task:f})
+Tasking.create({user:b,task:f})
+Tasking.create({user:b,task:taskone})
+Tasking.create({user:b,task:tasktwo})
+Tasking.create({user:a,task:taskthree})
+Tasking.create({user:b,task:taskfour})
+Tasking.create({user:a,task:taskfive})
+Tasking.create({user:b,task:tasksix})
+Tasking.create({user:b,task:taskseven})
+Tasking.create({user:a,task:taskeight})
 
 
 
@@ -59,13 +59,13 @@ m4 = Message.create({title:"Welcome,",content:"I hope you are well. Here are the
 m5 = Message.create({title:"Hi,",content:"Do You have any suggestion how should we approach this?",attachment:"no attach",sender_id: c.id})
 
 
-Messaging.create(user:a,message:g);
-Messaging.create(user:a,message:h);
-Messaging.create(user:b,message:h);
-Messaging.create(user:c,message:h);
-Messaging.create(user:d,message:h);
-Messaging.create(user:a,message:m1);
-Messaging.create(user:b,message:m2);
-Messaging.create(user:c,message:m3);
-Messaging.create(user:d,message:m4);
-Messaging.create(user:b,message:m5);
+Messaging.create({user:a,message:g})
+Messaging.create({user:a,message:h})
+Messaging.create({user:b,message:h})
+Messaging.create({user:c,message:h})
+Messaging.create({user:d,message:h})
+Messaging.create({user:a,message:m1})
+Messaging.create({user:b,message:m2})
+Messaging.create({user:c,message:m3})
+Messaging.create({user:d,message:m4})
+Messaging.create({user:b,message:m5})
