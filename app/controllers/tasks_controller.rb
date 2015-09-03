@@ -50,7 +50,7 @@ class TasksController < ApplicationController
 
     # weather API
     city = @task.location
-    city.gsub(" ", "_")
+    city.gsub!(" ", "%20")
     response = HTTParty.get("https://george-vustrey-weather.p.mashape.com/api.php?location=#{city}",
       headers:{
         "X-Mashape-Key" => ENV["WEATHER_KEY"],
