@@ -88,6 +88,7 @@ class TasksController < ApplicationController
       elsif @weather_condition.include? "hazy"
         @weather_img ="http://icons.wxug.com/i/c/k/fog.gif"  
       end
+
     end
 
     # handle invitation send out

@@ -37,6 +37,7 @@
                           <br><h4>Location and Weather</h4><br>
 
                           <% if @weather_exist %>
+
                             <% @task.location = URI.decode(@task.location) %>
                             <h5 class="location"><em class="task"><%= @task.location %></em></h5>
                             <p class="hidetext">.<img src="<%= @weather_img%>"  valign="middle" class="wtext">
@@ -45,6 +46,7 @@
                           <% else %>
                             <h5>Location not recognized.</h5>
                           <% end %>
+
                         </div>                    
                   </div>
 
