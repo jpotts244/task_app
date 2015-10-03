@@ -21,11 +21,12 @@ particular tasks.  TaskIt, organize your everyday.
 ### Technologies
 * HTML/ ERB templating
 * CSS
-* JS
+* JavaScript
 * Ruby on Rails
 * PostgreSql
-* Active Records
-* API
+* Active Record
+* Google Maps API
+* Ultimate Weather Forcast API
 
 ### Artifacts
 #### User Stories
@@ -70,6 +71,7 @@ particular tasks.  TaskIt, organize your everyday.
 [Trello](https://trello.com/b/5ngCFpBF/project-3)
 
 ### Heroku
-[GitHub](https://secure-badlands-5616.herokuapp.com/login)
+[GitHub](https://shielded-bastion-3954.herokuapp.com/)
 
-### Resources
+### Features in the Works
+* Integrating a more sustainable weather API and updating the database structure to allow for said new API.
