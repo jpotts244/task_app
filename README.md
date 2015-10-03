@@ -71,7 +71,7 @@ particular tasks.  TaskIt, organize your everyday.
 [Trello](https://trello.com/b/5ngCFpBF/project-3)
 
 ### Heroku
-[GitHub](https://task-it-app.herokuapp.com/)
+[See it Live](https://task-it-app.herokuapp.com/)
 
 ### Features in the Works
 * Integrating a more sustainable weather API and updating the database structure to allow for said new API.
